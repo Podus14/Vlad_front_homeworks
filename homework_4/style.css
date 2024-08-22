@@ -46,7 +46,7 @@ ul {
 .nav-menu {
     display: flex;
     justify-content: center;
-    padding: 45px 0 0 51px ;
+    padding: 45px 0 51px 0;
 }
 .nav-menu-item:not(:first-child) {
     margin-left: 68px;
@@ -110,7 +110,7 @@ img {
 .shots {
     margin-top: 69px;
     background-color: #f7f7f7;
-    padding: 47px 0 0 49px;
+    padding: 47px 0 49px 0;
 }
 .shots-text-wrapper {
     display: flex;
@@ -128,7 +128,7 @@ img {
 }
 footer {
     background-color: #000000;
-    padding: 66px 0 0 70px;
+    padding: 66px 0 70px 0;
 }
 footer img {
     width: 34px;
@@ -191,7 +191,7 @@ footer p {
         margin: 0 auto;
     }
     .nav-menu {
-        padding: 41px 0 0 43px ;
+        padding: 41px 0 43px 0;
     }
     .posts {
         margin-top: 59px;
@@ -219,7 +219,7 @@ footer p {
         height: 32%;
     }
     footer {
-        padding: 57px 0 0 56px;
+        padding: 57px 0 56px 0;
     } 
 }
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -271,25 +271,9 @@ footer p {
     .link {
         font-size: 14px;
     }
-    .one-post-container {
-        display: block;
-    }
-    .card-text-container {
-        padding-left: 0;
-    }
-    .card-description {
-        display: none;
-    }
-    .card-text-container h3 {
-        font-size: 14px;
-    }
-    .card-text-container h4 {
-        margin-bottom: 0;
-        font-size: 11px;
-    }
     .shots {
         margin-top: 43px;
-        padding: 38px 0 0 42px;
+        padding: 38px 0 42px 0;
         background-color: white;
     }
     .shots-text-wrapper {
@@ -306,7 +290,7 @@ footer p {
         height: 301px;
     }
     footer {
-        padding: 38px 0 0 47px;
+        padding: 38px 0 47px 0;
     }
     .link-white {
         margin-bottom: 8px;
@@ -332,4 +316,22 @@ footer p {
         font-size: 14px;
         line-height: 24px;
     }
+}
+@media screen and (min-width: 320px) and (max-width: 650px) {
+    .one-post-container {
+        display: block;
+    }
+    .card-text-container {
+        padding-left: 0;
+    }
+    .card-description {
+        display: none;
+    }
+    .card-text-container h3 {
+        font-size: 14px;
+    }
+    .card-text-container h4 {
+        margin-bottom: 0;
+        font-size: 11px;
+    } 
 }
