@@ -1,6 +1,22 @@
-body, h2, h3, h4, ul, p{
-    margin: 0;
-    padding: 0;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 body {
     font-family: "Roboto";
@@ -30,7 +46,7 @@ ul {
 .nav-menu {
     display: flex;
     justify-content: center;
-    padding: 45px 0px 51px ;
+    padding: 45px 0 0 51px ;
 }
 .nav-menu-item:not(:first-child) {
     margin-left: 68px;
@@ -51,7 +67,7 @@ img {
 .posts {
     margin-top: 69px;
 }
-.posts h2 {
+.link {
     font-size: 16px;
 }
 .all-posts-container {
@@ -94,17 +110,14 @@ img {
 .shots {
     margin-top: 69px;
     background-color: #f7f7f7;
-    padding: 47px 0 49px;
+    padding: 47px 0 0 49px;
 }
 .shots-text-wrapper {
     display: flex;
     justify-content: space-between;
     margin-bottom: 24px;
 }
-#first-shots-text {
-    font-size: 16px;
-}
-#second-shots-text {
+.link-small {
     font-size: 13px;
 }
 .shots-container {
@@ -115,17 +128,17 @@ img {
 }
 footer {
     background-color: #000000;
-    padding: 66px 0 70px;
+    padding: 66px 0 0 70px;
 }
 footer img {
     width: 34px;
     height: 34px;
 }
-footer h2 {
+.link-white {
     text-align: center;
     margin-bottom: 22px;
 }
-footer h2 a {
+.link-white a {
     font-size: 16px;
     color: #FEFEFE;
 }
@@ -152,7 +165,7 @@ footer p {
 .footer-contact-item a {
     color: #B9B9B9;
 }
-.footer-text-phone{
+.footer-text-mobile{
     display: none;
 }
 .footer-logos {
@@ -174,11 +187,11 @@ footer p {
         margin-left: 34px;
     }
     .container {
-        width: 768px;
+        width: 82%;
         margin: 0 auto;
     }
     .nav-menu {
-        padding: 41px 0px 43px ;
+        padding: 41px 0 0 43px ;
     }
     .posts {
         margin-top: 59px;
@@ -192,15 +205,21 @@ footer p {
     .shots-text-wrapper {
         margin-bottom: 35px;
     }
+    .shots-container {
+        justify-content: space-between;
+    }
     .shots-container img:last-child {
         display: none ;
     }
-    .shots-container img {
-        width: 249px;
-        height: 250px;
+    .shots-container img:not(:first-child) {
+        margin: 0;
+    }
+    .shots-container img {  
+        width: 32%;
+        height: 32%;
     }
     footer {
-        padding: 57px 0 56px;
+        padding: 57px 0 0 56px;
     } 
 }
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -249,7 +268,7 @@ footer p {
     .posts {
         margin-top: 38px;
     }
-    .posts h2 {
+    .link {
         font-size: 14px;
     }
     .one-post-container {
@@ -270,13 +289,13 @@ footer p {
     }
     .shots {
         margin-top: 43px;
-        padding: 38px 0 42px;
+        padding: 38px 0 0 42px;
         background-color: white;
     }
     .shots-text-wrapper {
         margin-bottom: 13px;
     }
-    #second-shots-text {
+    .link-small {
         display: none;
     }
     .shots-container img:not(:first-child) {
@@ -287,18 +306,18 @@ footer p {
         height: 301px;
     }
     footer {
-        padding: 38px 0 47px;
+        padding: 38px 0 0 47px;
     }
-    footer h2 {
+    .link-white {
         margin-bottom: 8px;
     }
     .footer-logos {
         margin: 26px 0 25px;
     }
-    .footer-text-not-phone {
+    .footer-text-not-mobile {
         display: none;
     }
-    .footer-text-phone {
+    .footer-text-mobile {
         display: block;
         width: 303px;
         font-size: 12px;
