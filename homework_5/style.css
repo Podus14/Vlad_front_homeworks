@@ -72,20 +72,54 @@ header p {
     font-weight: 400;
 }
 main {
-    
     position: relative;
 }
 .download-purple-button {
-    width: 290px;
-    /* display: block; */
     position: absolute; 
     text-align: center;
-    top:-23px;
     transform: translateX(-50%);
     left: 50%;
-    
-
-    /* margin: 0 auto; */
+}
+#free-trial-period{
+    font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+    color: #848E97;
+}
+main h2 {
+    color: #635C73;
+    font-weight: 700;
+    text-align: center;
+}
+#revolutionaty-editor-text {
+    font-family: "Lato";
+    text-align: center;
+    font-weight: 400;
+}
+main img {
+    display: block;
+    margin: 0 auto;
+}
+#github-first-part {
+   padding-bottom: 20px;
+}
+#features h2 {
+    font-weight: 700;
+    text-align: center;
+    color: #8D81AC;
+}
+.features-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.features-description-first-text {
+    font-weight: 400;
+    color: #323232;
+}
+.features-description-second-text {
+    font-family: "Lato";
+    font-weight: 400;
+    color: #848E97;
 }
 @media screen and (max-width: 768px){
     #logo-name {
@@ -122,10 +156,48 @@ main {
         line-height: 14px;
         padding: 14px 0 415px 0;
     }
-    
     .download-purple-button {
         font-size: 18px;
         line-height: 20px;
         padding: 13px 31px;
+        width: 290px;
+        top:-23px;
+    }
+    #free-trial-period{
+        padding-top: 35px;
+        line-height: 14px;
+    }
+    main h2 {
+        font-size: 26px;
+        line-height: 28px;
+        padding-top: 71.5px;
+    }
+    #revolutionaty-editor-text {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 27px 0 36px 0;
+    }
+    #features h2 {
+        font-size: 32px;
+        line-height: 38px;
+        padding: 120px 0 36px 0; 
+    }
+    .icon-img {
+        display: block;
+        margin: 0 auto 27px auto;
+    }
+    .features-wrapper {
+        gap: 37px;
+    }
+    .features-description-first-text {
+        font-size: 16px;
+        line-height: 16px;
+        padding-bottom: 14px;
+        text-align: center;
+    }
+    .features-description-second-text {
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
     }
 }
