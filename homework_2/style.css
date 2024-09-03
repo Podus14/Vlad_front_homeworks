@@ -1,0 +1,92 @@
+body{
+    margin: 0;
+}
+#main {
+    width: 1280px;
+    font-family: 'Montserrat';
+    margin: 0 auto 29px;
+}
+.menu { 
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28.5px;
+}
+.menu .container {
+    display: flex;
+    justify-content: space-between;
+    width: 620px;
+    padding: 0;
+    margin-top: 31.5px 0 0;
+}
+.menu .container li {
+    letter-spacing: 2.7px;
+    line-height: 18px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FF0000;
+    list-style-type: none;
+    text-transform: uppercase;
+}
+.section_main_text {
+  margin-top: 48px;
+}
+.section_main_text h1 {
+    margin: 0 auto 0;
+    width: 774px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 2.7px;
+    line-height: 29px;
+}
+.section_main_text p{
+    line-height: 26px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 2.4px;
+    color: #373737;
+    width: 1145px;
+}
+.section_main_text #first_text{
+    margin: 38px auto 0;
+    padding-bottom: 2px;
+}
+.section_main_text #second_text{
+    margin: 28px auto 0 ;
+    padding-bottom: 8px;
+}
+.section_main_text div{
+    display: flex;
+    justify-content: center;
+    margin: 66px 0 82px 0;
+}
+.section_main_text div a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 1.8px;
+    color: #FFFFFF;
+    background-color: #FF0000;
+    text-transform: uppercase;
+    padding: 18px 44px;
+    border-radius: 4px;
+}
+footer {
+    width: 1070px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+footer p{
+    margin: 0;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2.4px;
+    height: 39px;
+}
+
+
