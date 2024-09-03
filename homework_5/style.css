@@ -29,13 +29,14 @@ body {
 }
 header {
     background-image: url("assets/backgrounds/background_1.png");
+    background-position: center
 }
 .background-wrapper {
     background-color: #27262b;
 }
 nav {
     display: flex;
-    padding-top: 32px;
+    padding: 32px 0 32px 0;
 }
 .logo img {
     height: 43px;
@@ -43,25 +44,88 @@ nav {
 }
 #logo-name {
     color: #8D81AC;
-    /* display: none; */
 }
 .nav-menu-item {
     color: #8D81AC;
 }
+.purple-button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: white;
+    border-radius: 40px;
+    border-width: 0px;
+    background-color: #8D81AC;
+}
+h1 {
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+header h3 {
+    font-weight: 400;
+    color: #8D81AC;
+    text-align: center;
+}
+header p {
+    color: #848E97;
+    text-align: center;
+    font-weight: 400;
+}
+main {
+    
+    position: relative;
+}
+.download-purple-button {
+    width: 290px;
+    /* display: block; */
+    position: absolute; 
+    text-align: center;
+    top:-23px;
+    transform: translateX(-50%);
+    left: 50%;
+    
 
+    /* margin: 0 auto; */
+}
 @media screen and (max-width: 768px){
     #logo-name {
         display: none; 
     }
     nav {
         justify-content: space-between;
+        align-items: center;
     }
     .nav-menu {
         display: none;
+    }
+    .nav-purple-button {
+        font-size: 15px;
+        line-height: 15px;
+        padding: 6px 24px;
+        height: 37px;
     }
     .burger-menu {
         width: 26px;
         height: 21px;
     }
+    h1 {
+        margin: 49px 0 19px 0;
+        font-size: 48px;
+        line-height: 48px;
+    }
+    header h3 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    header p {
+        font-size: 14px;
+        line-height: 14px;
+        padding: 14px 0 415px 0;
+    }
     
+    .download-purple-button {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 13px 31px;
+    }
 }
