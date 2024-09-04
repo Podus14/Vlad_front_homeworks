@@ -3,7 +3,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+b, u, i, center, hr,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -31,7 +31,7 @@ header {
     background-image: url("assets/backgrounds/background_1.png");
     background-position: center
 }
-.background-wrapper {
+.background-nav-wrapper {
     background-color: #27262b;
 }
 nav {
@@ -121,6 +121,45 @@ main img {
     font-weight: 400;
     color: #848E97;
 }
+.background-reviews-price-wrapper{
+    background-image: url(assets/backgrounds/background_2.png), url(assets/backgrounds/background_3.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto, 100% auto;
+}
+.reviews-and-pricing-main-text {
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+.logos-wrapper {
+    display: grid;
+}
+.logo-img {
+    display: block;
+    margin: 0 auto 33px auto;
+}
+.logo-text {
+    font-family: "Lato";
+    font-size: 16px;
+    line-height: 24px;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+#reviews-and-pricing > p {
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #A291A5;
+}
+.line-review {
+    height: 2px;
+    background-color: #645766;
+}
 @media screen and (max-width: 768px){
     #logo-name {
         display: none; 
@@ -159,7 +198,7 @@ main img {
     .download-purple-button {
         font-size: 18px;
         line-height: 20px;
-        padding: 13px 31px;
+        padding: 13px 29px;
         width: 290px;
         top:-23px;
     }
@@ -199,5 +238,26 @@ main img {
         font-size: 14px;
         line-height: 21px;
         text-align: center;
+    }
+    #ide {
+        width: 100%;
+        margin: 58px 0 6px 0;
+    }
+    #reviews-main-text {
+        font-size: 36px;
+        line-height: 48px;
+        padding: 57px 0 53px 0;
+    }
+    .logos-wrapper {
+        grid-template-columns: 1fr;
+        row-gap: 41px;
+    }
+    #reviews-and-pricing > p {
+        padding: 29px 0 22px 0;
+    }
+    #price-main-text {
+        font-size: 28px;
+        line-height: 42px;
+        padding: 12px 0 32px 0;
     }
 }
