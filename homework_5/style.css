@@ -27,9 +27,8 @@ body {
     width: 90%;
     margin: 0 auto;
 }
-header {
-    background-image: url("assets/backgrounds/background_1.png");
-    background-position: center
+button {
+    font-family: "Montserrat", sans-serif;
 }
 .background-nav-wrapper {
     background-color: #27262b;
@@ -49,7 +48,6 @@ nav {
     color: #8D81AC;
 }
 .purple-button {
-    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     color: white;
     border-radius: 40px;
@@ -121,12 +119,6 @@ main img {
     font-weight: 400;
     color: #848E97;
 }
-.background-reviews-price-wrapper{
-    background-image: url(assets/backgrounds/background_2.png), url(assets/backgrounds/background_3.png);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: auto, 100% auto;
-}
 .reviews-and-pricing-main-text {
     text-align: center;
     font-weight: 700;
@@ -148,7 +140,7 @@ main img {
     color: white;
     text-align: center;
 }
-#reviews-and-pricing > p {
+#reviews > p {
     font-family: "Lato";
     font-weight: 400;
     font-size: 14px;
@@ -160,7 +152,79 @@ main img {
     height: 2px;
     background-color: #645766;
 }
+#pricing {
+    padding-bottom: 18px;
+}
+.price-wrapper {
+    display: grid;    
+}
+.subscription-card:not(:first-child) {
+    padding-bottom: 40px;
+}
+.subscription-card:first-child {
+    padding-bottom: 68px;
+}
+.subscription-card {
+    background-color: rgba(255, 255, 255, 0.11);  
+    width: 257px;
+    margin: 0 auto;
+}
+.subscription-card > * {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+}
+.subscription-name {
+    background-color: rgba(255, 255, 255, 0.06);  
+    font-size: 24px;
+    line-height: 24px;
+    padding: 36px 0;
+}
+.subscription-price {
+    font-size: 60px;
+    line-height: 62px;
+    padding: 30px 0 20px 0;
+    font-weight: 700;
+}
+h5 {
+    font-size: 14px;
+    line-height: 16px;
+    padding-bottom: 38px;
+}
+.subscription-line {
+    height: 5px;
+    background-color: #8D81AC;
+    width: 60px;
+    margin: 0 auto;
+}
+.subscription-card > p {
+    font-size: 16px;
+    line-height: 28px;
+}
+.subscription-description-text {
+    padding: 30px 0 39px 0;
+}
+.subscription-description-first-text {
+    padding-top: 30px;
+}
+.subscription-description-second-text {
+    padding-bottom: 39px;
+}
+.subscription-button {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.15);  
+    border-radius: 40px;
+    border-width: 0px;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 14px 36px;
+}
 @media screen and (max-width: 768px){
+    header {
+        background-image: url("assets/backgrounds/background_1_mobile.png");
+    }
     #logo-name {
         display: none; 
     }
@@ -239,9 +303,12 @@ main img {
         line-height: 21px;
         text-align: center;
     }
-    #ide {
+    #ide-mobile {
         width: 100%;
         margin: 58px 0 6px 0;
+    }
+    #reviews {
+        background-image: url(assets/backgrounds/background_2_mobile.png);
     }
     #reviews-main-text {
         font-size: 36px;
@@ -252,12 +319,19 @@ main img {
         grid-template-columns: 1fr;
         row-gap: 41px;
     }
-    #reviews-and-pricing > p {
+    #reviews > p {
         padding: 29px 0 22px 0;
+    }
+    #pricing {
+        background-image: url(assets/backgrounds/background_3_mobile.png);
     }
     #price-main-text {
         font-size: 28px;
         line-height: 42px;
         padding: 12px 0 32px 0;
+    }
+    .price-wrapper {
+        grid-template-columns: 1fr;
+        row-gap: 18px;
     }
 }
