@@ -30,22 +30,38 @@ body {
 button {
     font-family: "Montserrat", sans-serif;
 }
+header {
+    background-position: center;
+}
 .background-nav-wrapper {
     background-color: #27262b;
 }
 nav {
+    /* display: flex; */
+}
+.nav-main {
     display: flex;
-    padding: 32px 0 32px 0;
+}
+.nav-menu {
+    color: #8D81AC;
+    display: none;
+    justify-content: center;
+    gap: 47px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
 }
 .logo img {
     height: 43px;
     width: 41px;
 }
 #logo-name {
+    font-family: "Lato";
+    margin-left: 17px;
     color: #8D81AC;
-}
-.nav-menu-item {
-    color: #8D81AC;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 16px;
 }
 .purple-button {
     font-weight: 700;
@@ -53,6 +69,12 @@ nav {
     border-radius: 40px;
     border-width: 0px;
     background-color: #8D81AC;
+}
+.nav-purple-button {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 6px 35px;
+    height: 37px;
 }
 h1 {
     font-weight: 700;
@@ -110,11 +132,11 @@ main img {
     display: flex;
     flex-direction: column;
 }
-.features-description-first-text {
+.feature-description-first-text {
     font-weight: 400;
     color: #323232;
 }
-.features-description-second-text {
+.feature-description-second-text {
     font-family: "Lato";
     font-weight: 400;
     color: #848E97;
@@ -124,14 +146,14 @@ main img {
     font-weight: 700;
     color: white;
 }
-.logos-wrapper {
+.companies-wrapper {
     display: grid;
 }
-.logo-img {
+.company-img {
     display: block;
     margin: 0 auto 33px auto;
 }
-.logo-text {
+.company-text {
     font-family: "Lato";
     font-size: 16px;
     line-height: 24px;
@@ -158,11 +180,8 @@ main img {
 .price-wrapper {
     display: grid;    
 }
-.subscription-card:not(:first-child) {
+.subscription-card {
     padding-bottom: 40px;
-}
-.subscription-card:first-child {
-    padding-bottom: 68px;
 }
 .subscription-card {
     background-color: rgba(255, 255, 255, 0.11);  
@@ -202,7 +221,7 @@ h5 {
     line-height: 28px;
 }
 .subscription-description-text {
-    padding: 30px 0 39px 0;
+    padding: 30px 0 67px 0;
 }
 .subscription-description-first-text {
     padding-top: 30px;
@@ -221,25 +240,45 @@ h5 {
     margin: 0 auto;
     padding: 14px 36px;
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 320px){
     header {
         background-image: url("assets/backgrounds/background_1_mobile.png");
+    }
+}
+@media screen and (max-width: 500px) {
+    #ide-mobile {
+        width: 100%;
+        margin: 58px 0 6px 0;
+    }
+    #ide {
+        display: none;
+    }
+}
+@media screen and (min-width: 501px) and (max-width: 1200px) {
+    #ide-mobile {
+        display: none;
+    }
+    #ide {
+        width: 100%;
+        margin-top: 73px;
+    }
+}
+@media screen and (max-width: 768px){
+    header {
+        background-image: url("assets/backgrounds/background_1_768px.png");
     }
     #logo-name {
         display: none; 
     }
-    nav {
+    .nav-main {
         justify-content: space-between;
         align-items: center;
-    }
-    .nav-menu {
-        display: none;
+        padding: 32px 0 32px 0;
     }
     .nav-purple-button {
         font-size: 15px;
         line-height: 15px;
         padding: 6px 24px;
-        height: 37px;
     }
     .burger-menu {
         width: 26px;
@@ -280,6 +319,9 @@ h5 {
         line-height: 20px;
         padding: 27px 0 36px 0;
     }
+    #github-buttons {
+        display: none;
+    }
     #features h2 {
         font-size: 32px;
         line-height: 38px;
@@ -292,20 +334,16 @@ h5 {
     .features-wrapper {
         gap: 37px;
     }
-    .features-description-first-text {
+    .feature-description-first-text {
         font-size: 16px;
         line-height: 16px;
         padding-bottom: 14px;
         text-align: center;
     }
-    .features-description-second-text {
+    .feature-description-second-text {
         font-size: 14px;
         line-height: 21px;
         text-align: center;
-    }
-    #ide-mobile {
-        width: 100%;
-        margin: 58px 0 6px 0;
     }
     #reviews {
         background-image: url(assets/backgrounds/background_2_mobile.png);
@@ -315,7 +353,7 @@ h5 {
         line-height: 48px;
         padding: 57px 0 53px 0;
     }
-    .logos-wrapper {
+    .companies-wrapper {
         grid-template-columns: 1fr;
         row-gap: 41px;
     }
@@ -333,5 +371,126 @@ h5 {
     .price-wrapper {
         grid-template-columns: 1fr;
         row-gap: 18px;
+    }
+    /* .subscription-card:first-child {
+        padding-bottom: 68px;
+    } */
+}
+@media screen and (min-width: 769px) and (max-width: 1200px){
+    .container {
+        width: 95%;
+    }
+    header {
+        background-image: url("assets/backgrounds/background_1_768px.png");
+    }
+    .nav-main {
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 0 20px 0;
+    }
+    .nav-menu-medium-screen {
+        display: flex;
+        padding-bottom: 14px;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+    .burger-menu {
+        display: none;
+    }
+    h1 {
+        margin: 69px 0 19px 0;
+        font-size: 72px;
+        line-height: 72px;
+    }
+    header h3 {
+        font-family: "Lato";
+        font-size: 24px;
+        line-height: 24px;
+    }
+    header p {
+        font-size: 14px;
+        line-height: 14px;
+        padding: 14px 0 470px 0;
+    }
+    .download-purple-button {
+        font-size: 21px;
+        line-height: 22px;
+        padding: 20px 0;
+        width: 390px;
+        top:-31px;
+    }
+    #free-trial-period{
+        padding-top: 60px;
+        line-height: 16px;
+    }
+    main h2 {
+        font-size: 42px;
+        line-height: 42px;
+        padding-top: 88px;
+    }
+    #revolutionaty-editor-text {
+        font-size: 21px;
+        line-height: 32px;
+        padding: 27px 0 24px 0;
+    }
+    #github-first-part {
+        display: none;
+    }
+    #github-second-part {
+        display: none;
+    }
+    #features h2 {
+        font-size: 42px;
+        line-height: 44px;
+        padding: 160px 0 52px 0; 
+    }
+    .features-wrapper {
+        gap: 55px;
+    }
+    .feature-card {
+        display: flex;
+    }
+    .icon-img {
+        display: block;
+        margin: 0 auto;
+    }
+    .feature-img-wrapper {
+        flex: 0 0 111px;
+    }
+    .feature-description-wrapper {
+        padding-left: 23px;
+    }
+    #reviews {
+        background-image: url(assets/backgrounds/background_2_768px.png);
+    }
+    #reviews-main-text {
+        font-size: 42px;
+        line-height: 44px;
+        padding: 86px 0 88px 0;
+    }
+    .companies-wrapper {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 55px;
+        column-gap: 93px;
+    }
+    #reviews > p {
+        padding: 66px 0 20px 0;
+    }
+    #pricing {
+        background-image: url(assets/backgrounds/background_3_768px.png);
+    }
+    #price-main-text {
+        font-size: 42px;
+        line-height: 44px;
+        padding: 88px 0 30px 0;
+    }
+    .price-wrapper {
+        width: 562px;
+        margin: 0 auto;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 71px;
+        column-gap: 25px;
     }
 }
