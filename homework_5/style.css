@@ -33,14 +33,12 @@ button {
 header {
     background-position: center;
 }
-.background-nav-wrapper {
-    background-color: #27262b;
-}
 nav {
     /* display: flex; */
 }
 .nav-main {
     display: flex;
+    padding: 32px 0 32px 0;
 }
 .nav-menu {
     color: #8D81AC;
@@ -50,6 +48,25 @@ nav {
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
+}
+.nav-menu > li:hover {
+    color: white;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo-img-hover {
+    display: none;
+}
+.logo:hover .logo-img-hover {
+    display: block;
+}
+.logo:hover #logo-name {
+    color: white;
+}
+.logo:hover .logo-img {
+    display: none;
 }
 .logo img {
     height: 43px;
@@ -69,6 +86,11 @@ nav {
     border-radius: 40px;
     border-width: 0px;
     background-color: #8D81AC;
+}
+.purple-button:hover {
+    color: #8D81AC;
+    background-color: white;
+    border: 2px solid #8D81AC;
 }
 .nav-purple-button {
     font-size: 16px;
@@ -91,6 +113,10 @@ header p {
     text-align: center;
     font-weight: 400;
 }
+#free-trial-period{
+    padding-top: 60px;
+    line-height: 16px;
+}
 main {
     position: relative;
 }
@@ -106,7 +132,7 @@ main {
     font-size: 14px;
     color: #848E97;
 }
-main h2 {
+.main-text {
     color: #635C73;
     font-weight: 700;
     text-align: center;
@@ -115,18 +141,29 @@ main h2 {
     font-family: "Lato";
     text-align: center;
     font-weight: 400;
+    font-size: 21px;
+    line-height: 32px;
 }
 main img {
     display: block;
     margin: 0 auto;
 }
 #github-first-part {
+    display: none;
+}
+#github-second-part {
+    display: none;
+}
+#github-first-part {
    padding-bottom: 20px;
 }
-#features h2 {
+.features-main-text {
     font-weight: 700;
     text-align: center;
     color: #8D81AC;
+}
+#features-main-text-big-screen {
+    display: none;
 }
 .features-wrapper {
     display: flex;
@@ -137,9 +174,10 @@ main img {
     color: #323232;
 }
 .feature-description-second-text {
-    font-family: "Lato";
     font-weight: 400;
     color: #848E97;
+    font-size: 14px;
+    line-height: 21px;
 }
 .reviews-and-pricing-main-text {
     text-align: center;
@@ -170,12 +208,12 @@ main img {
     text-align: center;
     color: #A291A5;
 }
-.line-review {
+.line-price {
     height: 2px;
     background-color: #645766;
 }
 #pricing {
-    padding-bottom: 18px;
+    padding-bottom: 90px;
 }
 .price-wrapper {
     display: grid;    
@@ -187,6 +225,36 @@ main img {
     background-color: rgba(255, 255, 255, 0.11);  
     width: 257px;
     margin: 0 auto;
+    max-height: 435px;
+    /* height: 457px; */
+}
+.subscription-card:hover {
+    padding-bottom: 47px;
+    max-height: 800px;
+    min-height: 435px;
+    width: 299px;
+    background-color: rgba(70, 48, 72, 1);
+}
+.subscription-card:hover .subscription-name  {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 43px 0;
+}
+.subscription-card:hover .subscription-price {
+    font-size: 82px;
+    line-height: 84px;
+    padding: 14px 0 16px 0;
+}
+.subscription-card:hover h5 {
+    padding-bottom: 46px;
+}
+.subscription-card:hover .subscription-description-text {
+    padding: 40px 0 111px 0;
+}
+.subscription-card:hover .subscription-description-first-text {
+    padding-top: 40px;
+}
+.subscription-card:hover .subscription-description-second-text {
+    padding-bottom: 83px;
 }
 .subscription-card > * {
     text-align: center;
@@ -240,11 +308,34 @@ h5 {
     margin: 0 auto;
     padding: 14px 36px;
 }
+
+@media screen and (max-width: 1200px){
+    .background-nav-wrapper {
+        background-color: #27262b;
+    }
+}
 @media screen and (max-width: 320px){
     header {
         background-image: url("assets/backgrounds/background_1_mobile.png");
+        background-size: 100% 100%;
     }
 }
+@media screen and (min-width: 321px) and (max-width: 768px) {
+    header {
+        background-image: url("assets/backgrounds/background_1_768px.png");
+        background-size: 100% 100%;
+    }
+}
+@media screen and (min-width: 769px) {
+    header {
+        background-image: url("assets/backgrounds/background_1_1200px.png");
+        background-size: 100% 100%;
+    }
+    /* #reviews {
+        background-image: url("assets/backgrounds/background_2_1200px.png");
+    } */
+}
+
 @media screen and (max-width: 500px) {
     #ide-mobile {
         width: 100%;
@@ -264,16 +355,12 @@ h5 {
     }
 }
 @media screen and (max-width: 768px){
-    header {
-        background-image: url("assets/backgrounds/background_1_768px.png");
-    }
     #logo-name {
         display: none; 
     }
     .nav-main {
         justify-content: space-between;
         align-items: center;
-        padding: 32px 0 32px 0;
     }
     .nav-purple-button {
         font-size: 15px;
@@ -309,7 +396,7 @@ h5 {
         padding-top: 35px;
         line-height: 14px;
     }
-    main h2 {
+    .main-text {
         font-size: 26px;
         line-height: 28px;
         padding-top: 71.5px;
@@ -322,7 +409,13 @@ h5 {
     #github-buttons {
         display: none;
     }
-    #features h2 {
+    #github-first-part {
+        display: block;
+    }
+    #github-second-part {
+        display: block;
+    }
+    .features-main-text {
         font-size: 32px;
         line-height: 38px;
         padding: 120px 0 36px 0; 
@@ -341,12 +434,12 @@ h5 {
         text-align: center;
     }
     .feature-description-second-text {
-        font-size: 14px;
-        line-height: 21px;
+        font-family: "Lato";
         text-align: center;
     }
     #reviews {
         background-image: url(assets/backgrounds/background_2_mobile.png);
+        background-size: 100% 100%;
     }
     #reviews-main-text {
         font-size: 36px;
@@ -362,6 +455,7 @@ h5 {
     }
     #pricing {
         background-image: url(assets/backgrounds/background_3_mobile.png);
+        background-size: 100% 100%;
     }
     #price-main-text {
         font-size: 28px;
@@ -372,16 +466,19 @@ h5 {
         grid-template-columns: 1fr;
         row-gap: 18px;
     }
-    /* .subscription-card:first-child {
-        padding-bottom: 68px;
-    } */
+}
+@media screen and (min-width: 769px) {
+    .download-purple-button {
+        font-size: 21px;
+        line-height: 22px;
+        padding: 20px 0;
+        width: 390px;
+        top:-31px;
+    }
 }
 @media screen and (min-width: 769px) and (max-width: 1200px){
     .container {
         width: 95%;
-    }
-    header {
-        background-image: url("assets/backgrounds/background_1_768px.png");
     }
     .nav-main {
         justify-content: space-between;
@@ -391,10 +488,6 @@ h5 {
     .nav-menu-medium-screen {
         display: flex;
         padding-bottom: 14px;
-    }
-    .logo {
-        display: flex;
-        align-items: center;
     }
     .burger-menu {
         display: none;
@@ -414,18 +507,7 @@ h5 {
         line-height: 14px;
         padding: 14px 0 470px 0;
     }
-    .download-purple-button {
-        font-size: 21px;
-        line-height: 22px;
-        padding: 20px 0;
-        width: 390px;
-        top:-31px;
-    }
-    #free-trial-period{
-        padding-top: 60px;
-        line-height: 16px;
-    }
-    main h2 {
+    .main-text {
         font-size: 42px;
         line-height: 42px;
         padding-top: 88px;
@@ -435,13 +517,7 @@ h5 {
         line-height: 32px;
         padding: 27px 0 24px 0;
     }
-    #github-first-part {
-        display: none;
-    }
-    #github-second-part {
-        display: none;
-    }
-    #features h2 {
+    .features-main-text {
         font-size: 42px;
         line-height: 44px;
         padding: 160px 0 52px 0; 
@@ -462,8 +538,13 @@ h5 {
     .feature-description-wrapper {
         padding-left: 23px;
     }
+    .feature-description-first-text {
+       font-size: 16px;
+       line-height: 21px;
+    }
     #reviews {
         background-image: url(assets/backgrounds/background_2_768px.png);
+        background-size: 100% 100%;
     }
     #reviews-main-text {
         font-size: 42px;
@@ -478,8 +559,15 @@ h5 {
     #reviews > p {
         padding: 66px 0 20px 0;
     }
+    #pixel_buddha > .company-img {
+        margin-top: 44px;
+    }
     #pricing {
         background-image: url(assets/backgrounds/background_3_768px.png);
+        background-size: 100% 100%;
+    }
+    .line-price {
+        width: 555px;
     }
     #price-main-text {
         font-size: 42px;
@@ -493,4 +581,157 @@ h5 {
         row-gap: 71px;
         column-gap: 25px;
     }
+}
+@media screen and (min-width: 1201px) {
+    .container {
+        width: 85%;
+    }
+    .burger-menu {
+        display: none;
+    }
+    .nav-main {
+        justify-content: space-between;
+    }
+    .nav-menu-and-button-wrapper-big-screen {
+        display: flex;
+        align-items: center;
+        gap: 47px;
+    }
+    .nav-menu-big-screen {
+        display: flex;
+    }
+    h1 {
+        margin: 83px 0 19px 0;
+        font-size: 82px;
+        line-height: 82px;
+    }
+    header h3 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    header p {
+        font-size: 16px;
+        line-height: 16px;
+        padding: 19px 0 457px 0;
+    }
+    .main-text {
+        font-size: 54px;
+        line-height: 54px;
+        padding-top: 60px;
+    }
+    #revolutionaty-editor-text {
+        width: 861px;
+        padding: 35px 0 13px 0;
+        margin: 0 auto;
+    }
+    #github-buttons {
+        margin-bottom: 70px;
+    }
+    #features {
+        background-color: #F4F4F4;
+        padding: 94px 0 33px 0;
+    }
+    .container-big-screen {
+        display: flex;
+        gap: 50px;
+        width: 92.5%;
+        margin: 0 0 0 auto;
+    }
+    .feature-card {
+        display: flex;
+    }
+    .icon-img {
+        display: block;
+        margin: 0 auto;
+    }
+    .feature-img-wrapper {
+        flex: 0 0 111px;
+        align-self: center;
+    }
+    .container-big-screen > h2 {
+        display: none;
+    }
+    #ide-mobile {
+        display: none;
+    }
+    #features-main-text-big-screen {
+        display: block;
+        font-size: 48px;
+        line-height: 50px;
+        text-align: left;
+        margin-left: 25px;
+        padding-bottom: 19px;
+    }
+    .features-wrapper {
+        gap: 33px;
+    }
+    .feature-description-wrapper {
+        padding-left: 23px;
+    }
+    .feature-description-first-text {
+        font-size: 16px;
+        line-height: 21px;
+        padding-bottom:16px ;
+     }
+    #reviews {
+        background-image: url(assets/backgrounds/background_2_1200px.png);
+        background-size: 100% 101%;
+    }
+    #reviews-main-text {
+        font-size: 48px;
+        line-height: 48px;
+        padding: 108px 0 81px 0;
+    }
+    .companies-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 107px;
+        column-gap: 117px;
+    }
+    /* .company-item {
+        
+    } */
+    #reviews > p {
+        width: 887px;
+        padding: 115px 0 19px 0;
+    }
+    .line-price {
+        width: 780px;
+    }
+    #pricing {
+        background-image: url(assets/backgrounds/background_3_1200px.png);
+        background-size: 100% 100%;
+    }
+    #price-main-text {
+        font-size: 48px;
+        line-height: 50px;
+        padding: 112px 0 112px 0;
+    }
+    .price-wrapper {
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        /* justify-content: space-between;
+        gap: 15px; */
+        
+    }
+    .subscription-card {
+        margin: 0;
+    }
+    /* .features-main-text-big-screen-wrapper {
+        display: flex;
+    } */
+    /* #features h2 {
+        font-size: 42px;
+        line-height: 44px;
+        padding: 160px 0 52px 0; 
+    } */
+    /* #ide-mobile {
+        width: 100%;
+        margin: 58px 0 6px 0;
+    }
+    #ide {
+        display: none;
+    } */
 }
