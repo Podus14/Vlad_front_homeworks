@@ -33,9 +33,6 @@ button {
 header {
     background-position: center;
 }
-nav {
-    /* display: flex; */
-}
 .nav-main {
     display: flex;
     padding: 32px 0 32px 0;
@@ -226,7 +223,6 @@ main img {
     width: 257px;
     margin: 0 auto;
     max-height: 435px;
-    /* height: 457px; */
 }
 .subscription-card:hover {
     padding-bottom: 47px;
@@ -331,9 +327,6 @@ h5 {
         background-image: url("assets/backgrounds/background_1_1200px.png");
         background-size: 100% 100%;
     }
-    /* #reviews {
-        background-image: url("assets/backgrounds/background_2_1200px.png");
-    } */
 }
 
 @media screen and (max-width: 500px) {
@@ -687,9 +680,6 @@ h5 {
         row-gap: 107px;
         column-gap: 117px;
     }
-    /* .company-item {
-        
-    } */
     #reviews > p {
         width: 887px;
         padding: 115px 0 19px 0;
@@ -712,26 +702,8 @@ h5 {
         display: flex;
         justify-content: center;
         gap: 15px;
-        /* justify-content: space-between;
-        gap: 15px; */
-        
     }
     .subscription-card {
         margin: 0;
     }
-    /* .features-main-text-big-screen-wrapper {
-        display: flex;
-    } */
-    /* #features h2 {
-        font-size: 42px;
-        line-height: 44px;
-        padding: 160px 0 52px 0; 
-    } */
-    /* #ide-mobile {
-        width: 100%;
-        margin: 58px 0 6px 0;
-    }
-    #ide {
-        display: none;
-    } */
 }
