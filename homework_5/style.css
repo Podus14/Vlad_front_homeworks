@@ -1,0 +1,724 @@
+/* CSS RESET START */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, hr,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    list-style: none;
+    text-decoration: none;
+}
+/* CSS RESET END */
+body {
+    font-family: "Montserrat", sans-serif;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+button {
+    font-family: "Montserrat", sans-serif;
+}
+header {
+    /* background-position: center; */
+}
+.nav-main {
+    display: flex;
+    padding: 32px 0 32px 0;
+}
+.nav-menu {
+    color: #8D81AC;
+    display: none;
+    justify-content: center;
+    gap: 47px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+}
+.nav-menu > li:hover {
+    color: white;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo-img-hover {
+    display: none;
+}
+.logo:hover .logo-img-hover {
+    display: block;
+}
+.logo:hover #logo-name {
+    color: white;
+}
+.logo:hover .logo-img {
+    display: none;
+}
+.logo img {
+    height: 43px;
+    width: 41px;
+}
+#logo-name {
+    font-family: "Lato";
+    margin-left: 17px;
+    color: #8D81AC;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 16px;
+}
+.purple-button {
+    font-weight: 700;
+    color: white;
+    border-radius: 40px;
+    border-width: 0px;
+    background-color: #8D81AC;
+}
+.purple-button:hover {
+    color: #8D81AC;
+    background-color: white;
+    border: 2px solid #8D81AC;
+}
+.nav-purple-button {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 6px 35px;
+    height: 37px;
+}
+#fork-app {
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+header h3 {
+    font-weight: 400;
+    color: #8D81AC;
+    text-align: center;
+}
+header span {
+    display: block;
+    color: #848E97;
+    text-align: center;
+    font-weight: 400;
+}
+#free-trial-period{
+    display: block;
+    padding-top: 60px;
+    line-height: 16px;
+}
+main {
+    position: relative;
+}
+.download-purple-button {
+    position: absolute; 
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+}
+#free-trial-period{
+    font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+    color: #848E97;
+}
+.main-text {
+    color: #635C73;
+    font-weight: 700;
+    text-align: center;
+}
+#revolutionaty-editor-text {
+    font-family: "Lato";
+    text-align: center;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 32px;
+}
+main img {
+    display: block;
+    margin: 0 auto;
+}
+#github-first-part {
+    display: none;
+}
+#github-second-part {
+    display: none;
+}
+#github-first-part {
+   padding-bottom: 20px;
+}
+.features-main-text {
+    font-weight: 700;
+    text-align: center;
+    color: #8D81AC;
+}
+#features-main-text-big-screen {
+    display: none;
+}
+.features-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.feature-description-first-text {
+    font-weight: 400;
+    color: #323232;
+}
+.feature-description-second-text {
+    font-weight: 400;
+    color: #848E97;
+    font-size: 14px;
+    line-height: 21px;
+}
+.reviews-and-pricing-main-text {
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+.companies-wrapper {
+    display: grid;
+}
+.company-img {
+    display: block;
+    margin: 0 auto 33px auto;
+}
+.company-text {
+    font-family: "Lato";
+    font-size: 16px;
+    line-height: 24px;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+#reviews > p {
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #A291A5;
+}
+.line-price {
+    height: 2px;
+    background-color: #645766;
+}
+#pricing {
+    padding-bottom: 90px;
+}
+.price-wrapper {
+    display: grid;    
+}
+.subscription-card {
+    padding-bottom: 40px;
+}
+.subscription-card {
+    background-color: rgba(255, 255, 255, 0.11);  
+    width: 257px;
+    margin: 0 auto;
+    max-height: 435px;
+}
+.subscription-card:hover {
+    padding-bottom: 47px;
+    max-height: 800px;
+    min-height: 435px;
+    width: 299px;
+    background-color: rgba(70, 48, 72, 1);
+}
+.subscription-card:hover .subscription-name  {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 43px 0;
+}
+.subscription-card:hover .subscription-price {
+    font-size: 82px;
+    line-height: 84px;
+    margin: 14px 0 16px 0;
+}
+.subscription-card:hover h5 {
+    margin-bottom: 46px;
+}
+.subscription-card:hover .subscription-description-text {
+    margin: 40px 0 111px 0;
+}
+.subscription-card:hover .subscription-description-first-text {
+    margin-top: 40px;
+}
+.subscription-card:hover .subscription-description-second-text {
+    margin-bottom: 83px;
+}
+.subscription-card > * {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+}
+.subscription-name {
+    background-color: rgba(255, 255, 255, 0.06);  
+    font-size: 24px;
+    line-height: 24px;
+    padding: 36px 0;
+}
+.subscription-price {
+    font-size: 60px;
+    line-height: 62px;
+    margin: 30px 0 20px 0;
+    font-weight: 700;
+}
+h5 {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 38px;
+}
+.subscription-line {
+    height: 5px;
+    background-color: #8D81AC;
+    width: 60px;
+    margin: 0 auto;
+}
+.subscription-card > p {
+    font-size: 16px;
+    line-height: 28px;
+}
+.subscription-description-text {
+    margin: 30px 0 67px 0;
+}
+.subscription-description-first-text {
+    margin-top: 30px;
+}
+.subscription-description-second-text {
+    margin-bottom: 39px;
+}
+.subscription-button {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.15);  
+    border-radius: 40px;
+    border-width: 0px;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 14px 36px;
+}
+
+@media screen and (max-width: 1200px){
+    .background-nav-wrapper {
+        background-color: #27262b;
+    }
+}
+@media screen and (max-width: 320px){
+    header {
+        background-image: url("assets/backgrounds/background_1_mobile.png");
+        background-size: 100% 100%;
+    }
+}
+@media screen and (min-width: 321px) and (max-width: 768px) {
+    header {
+        background-image: url("assets/backgrounds/background_1_768px.png");
+        background-size: 100% 100%;
+    }
+}
+@media screen and (min-width: 769px) {
+    header {
+        background-image: url("assets/backgrounds/background_1_1200px.png");
+        background-size: 100% 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #ide-mobile {
+        width: 100%;
+        margin: 58px 0 6px 0;
+    }
+    #ide {
+        display: none;
+    }
+}
+@media screen and (min-width: 501px) and (max-width: 1200px) {
+    #ide-mobile {
+        display: none;
+    }
+    #ide {
+        width: 100%;
+        margin-top: 73px;
+    }
+}
+@media screen and (max-width: 768px){
+    #logo-name {
+        display: none; 
+    }
+    .nav-main {
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-purple-button {
+        font-size: 15px;
+        line-height: 15px;
+        padding: 6px 24px;
+    }
+    .burger-menu {
+        width: 26px;
+        height: 21px;
+    }
+    #fork-app {
+        margin: 49px 0 19px 0;
+        font-size: 48px;
+        line-height: 48px;
+    }
+    header h3 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    header {
+        padding-bottom: 415px;
+    }
+    header span {
+        font-size: 14px;
+        line-height: 14px;
+        margin-top: 14px;
+    }
+    .download-purple-button {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 13px 29px;
+        width: 290px;
+        top:-23px;
+    }
+    #free-trial-period{
+        padding-top: 35px;
+        line-height: 14px;
+    }
+    .main-text {
+        font-size: 26px;
+        line-height: 28px;
+        margin-top: 71.5px;
+    }
+    #revolutionaty-editor-text {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 27px 0 36px 0;
+    }
+    #github-buttons {
+        display: none;
+    }
+    #github-first-part {
+        display: block;
+    }
+    #github-second-part {
+        display: block;
+    }
+    .features-main-text {
+        font-size: 32px;
+        line-height: 38px;
+        padding: 120px 0 36px 0; 
+    }
+    .icon-img {
+        display: block;
+        margin: 0 auto 27px auto;
+    }
+    .features-wrapper {
+        gap: 37px;
+    }
+    .feature-description-first-text {
+        font-size: 16px;
+        line-height: 16px;
+        padding-bottom: 14px;
+        text-align: center;
+    }
+    .feature-description-second-text {
+        font-family: "Lato";
+        text-align: center;
+    }
+    #reviews {
+        background-image: url(assets/backgrounds/background_2_mobile.png);
+        background-size: 100% 100%;
+        padding: 57px 0 22px 0;
+    }
+    #reviews-main-text {
+        font-size: 36px;
+        line-height: 48px;
+        margin-bottom: 53px;
+    }
+    .companies-wrapper {
+        grid-template-columns: 1fr;
+        row-gap: 41px;
+    }
+    #reviews > p {
+        margin-top: 29px;
+    }
+    #pricing {
+        background-image: url(assets/backgrounds/background_3_mobile.png);
+        background-size: 100% 100%;
+    }
+    #price-main-text {
+        font-size: 28px;
+        line-height: 42px;
+        margin: 12px 0 32px 0;
+    }
+    .price-wrapper {
+        grid-template-columns: 1fr;
+        row-gap: 18px;
+    }
+}
+@media screen and (min-width: 769px) {
+    .download-purple-button {
+        font-size: 21px;
+        line-height: 22px;
+        padding: 20px 0;
+        width: 390px;
+        top:-31px;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1200px){
+    .container {
+        width: 95%;
+    }
+    .nav-main {
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 0 20px 0;
+    }
+    .nav-menu-medium-screen {
+        display: flex;
+        padding-bottom: 14px;
+    }
+    .burger-menu {
+        display: none;
+    }
+    #fork-app {
+        margin: 69px 0 19px 0;
+        font-size: 72px;
+        line-height: 72px;
+    }
+    header h3 {
+        font-family: "Lato";
+        font-size: 24px;
+        line-height: 24px;
+    }
+    header {
+        padding-bottom: 470px;
+    }
+    header span {
+        font-size: 14px;
+        line-height: 14px;
+        margin-top: 14px;
+    }
+    .main-text {
+        font-size: 42px;
+        line-height: 42px;
+        margin-top: 88px;
+    }
+    #revolutionaty-editor-text {
+        font-size: 21px;
+        line-height: 32px;
+        margin: 27px 0 24px 0;
+    }
+    .features-main-text {
+        font-size: 42px;
+        line-height: 44px;
+        padding: 160px 0 52px 0; 
+    }
+    .features-wrapper {
+        gap: 55px;
+    }
+    .feature-card {
+        display: flex;
+    }
+    .icon-img {
+        display: block;
+        margin: 0 auto;
+    }
+    .feature-img-wrapper {
+        flex: 0 0 111px;
+    }
+    .feature-description-wrapper {
+        padding-left: 23px;
+    }
+    .feature-description-first-text {
+       font-size: 16px;
+       line-height: 21px;
+    }
+    #reviews {
+        background-image: url(assets/backgrounds/background_2_768px.png);
+        background-size: 100% 100%;
+        padding: 86px 0 20px 0;
+    }
+    #reviews-main-text {
+        font-size: 42px;
+        line-height: 44px;
+        margin-bottom: 88px;
+    }
+    .companies-wrapper {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 55px;
+        column-gap: 93px;
+    }
+    #reviews > p {
+        margin-top: 66px;
+    }
+    #pixel_buddha > .company-img {
+        margin-top: 44px;
+    }
+    #pricing {
+        background-image: url(assets/backgrounds/background_3_768px.png);
+        background-size: 100% 100%;
+    }
+    .line-price {
+        width: 555px;
+    }
+    #price-main-text {
+        font-size: 42px;
+        line-height: 44px;
+        margin: 88px 0 30px 0;
+    }
+    .price-wrapper {
+        width: 562px;
+        margin: 0 auto;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 71px;
+        column-gap: 25px;
+    }
+}
+@media screen and (min-width: 1201px) {
+    .container {
+        width: 85%;
+    }
+    .burger-menu {
+        display: none;
+    }
+    .nav-main {
+        justify-content: space-between;
+    }
+    .nav-menu-and-button-wrapper-big-screen {
+        display: flex;
+        align-items: center;
+        gap: 47px;
+    }
+    .nav-menu-big-screen {
+        display: flex;
+    }
+    #fork-app {
+        margin: 83px 0 19px 0;
+        font-size: 82px;
+        line-height: 82px;
+    }
+    header h3 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    header {
+        padding-bottom: 457px;
+    }
+    header span {
+        font-size: 16px;
+        line-height: 16px;
+        margin-top: 19px;
+    }
+    main {
+        padding-bottom: 70px;
+    }
+    .main-text {
+        font-size: 54px;
+        line-height: 54px;
+        margin-top: 60px;
+    }
+    #revolutionaty-editor-text {
+        width: 861px;
+        margin: 35px auto 13px auto;
+    }
+    #features {
+        background-color: #F4F4F4;
+        padding: 94px 0 33px 0;
+    }
+    .container-big-screen {
+        display: flex;
+        gap: 50px;
+        width: 92.5%;
+        margin: 0 0 0 auto;
+    }
+    .feature-card {
+        display: flex;
+    }
+    .icon-img {
+        display: block;
+        margin: 0 auto;
+    }
+    .feature-img-wrapper {
+        flex: 0 0 111px;
+        align-self: center;
+    }
+    .container-big-screen > h2 {
+        display: none;
+    }
+    #ide-mobile {
+        display: none;
+    }
+    #features-main-text-big-screen {
+        display: block;
+        font-size: 48px;
+        line-height: 50px;
+        text-align: left;
+        margin-left: 25px;
+        padding-bottom: 19px;
+    }
+    .features-wrapper {
+        gap: 33px;
+    }
+    .feature-description-wrapper {
+        padding-left: 23px;
+    }
+    .feature-description-first-text {
+        font-size: 16px;
+        line-height: 21px;
+        padding-bottom:16px ;
+     }
+    #reviews {
+        background-image: url(assets/backgrounds/background_2_1200px.png);
+        background-size: 100% 101%;
+        padding: 108px 0 19px 0;
+    }
+    #reviews-main-text {
+        font-size: 48px;
+        line-height: 48px;
+        margin-bottom: 81px;
+    }
+    .companies-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 107px;
+        column-gap: 117px;
+    }
+    #reviews > p {
+        width: 887px;
+        margin-top: 115px;
+    }
+    .line-price {
+        width: 780px;
+    }
+    #pricing {
+        background-image: url(assets/backgrounds/background_3_1200px.png);
+        background-size: 100% 100%;
+    }
+    #price-main-text {
+        font-size: 48px;
+        line-height: 50px;
+        margin: 112px 0 112px 0;
+    }
+    .price-wrapper {
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    .subscription-card {
+        margin: 0;
+    }
+}
