@@ -1,3 +1,4 @@
+/* CSS RESET START */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,6 +21,7 @@ time, mark, audio, video {
     list-style: none;
     text-decoration: none;
 }
+/* CSS RESET END */
 body {
     font-family: "Montserrat", sans-serif;
 }
@@ -31,7 +33,7 @@ button {
     font-family: "Montserrat", sans-serif;
 }
 header {
-    background-position: center;
+    /* background-position: center; */
 }
 .nav-main {
     display: flex;
@@ -95,7 +97,7 @@ header {
     padding: 6px 35px;
     height: 37px;
 }
-h1 {
+#fork-app {
     font-weight: 700;
     color: white;
     text-align: center;
@@ -105,12 +107,14 @@ header h3 {
     color: #8D81AC;
     text-align: center;
 }
-header p {
+header span {
+    display: block;
     color: #848E97;
     text-align: center;
     font-weight: 400;
 }
 #free-trial-period{
+    display: block;
     padding-top: 60px;
     line-height: 16px;
 }
@@ -238,19 +242,19 @@ main img {
 .subscription-card:hover .subscription-price {
     font-size: 82px;
     line-height: 84px;
-    padding: 14px 0 16px 0;
+    margin: 14px 0 16px 0;
 }
 .subscription-card:hover h5 {
-    padding-bottom: 46px;
+    margin-bottom: 46px;
 }
 .subscription-card:hover .subscription-description-text {
-    padding: 40px 0 111px 0;
+    margin: 40px 0 111px 0;
 }
 .subscription-card:hover .subscription-description-first-text {
-    padding-top: 40px;
+    margin-top: 40px;
 }
 .subscription-card:hover .subscription-description-second-text {
-    padding-bottom: 83px;
+    margin-bottom: 83px;
 }
 .subscription-card > * {
     text-align: center;
@@ -266,13 +270,13 @@ main img {
 .subscription-price {
     font-size: 60px;
     line-height: 62px;
-    padding: 30px 0 20px 0;
+    margin: 30px 0 20px 0;
     font-weight: 700;
 }
 h5 {
     font-size: 14px;
     line-height: 16px;
-    padding-bottom: 38px;
+    margin-bottom: 38px;
 }
 .subscription-line {
     height: 5px;
@@ -285,13 +289,13 @@ h5 {
     line-height: 28px;
 }
 .subscription-description-text {
-    padding: 30px 0 67px 0;
+    margin: 30px 0 67px 0;
 }
 .subscription-description-first-text {
-    padding-top: 30px;
+    margin-top: 30px;
 }
 .subscription-description-second-text {
-    padding-bottom: 39px;
+    margin-bottom: 39px;
 }
 .subscription-button {
     display: block;
@@ -364,7 +368,7 @@ h5 {
         width: 26px;
         height: 21px;
     }
-    h1 {
+    #fork-app {
         margin: 49px 0 19px 0;
         font-size: 48px;
         line-height: 48px;
@@ -373,10 +377,13 @@ h5 {
         font-size: 18px;
         line-height: 24px;
     }
-    header p {
+    header {
+        padding-bottom: 415px;
+    }
+    header span {
         font-size: 14px;
         line-height: 14px;
-        padding: 14px 0 415px 0;
+        margin-top: 14px;
     }
     .download-purple-button {
         font-size: 18px;
@@ -392,12 +399,12 @@ h5 {
     .main-text {
         font-size: 26px;
         line-height: 28px;
-        padding-top: 71.5px;
+        margin-top: 71.5px;
     }
     #revolutionaty-editor-text {
         font-size: 14px;
         line-height: 20px;
-        padding: 27px 0 36px 0;
+        margin: 27px 0 36px 0;
     }
     #github-buttons {
         display: none;
@@ -433,18 +440,19 @@ h5 {
     #reviews {
         background-image: url(assets/backgrounds/background_2_mobile.png);
         background-size: 100% 100%;
+        padding: 57px 0 22px 0;
     }
     #reviews-main-text {
         font-size: 36px;
         line-height: 48px;
-        padding: 57px 0 53px 0;
+        margin-bottom: 53px;
     }
     .companies-wrapper {
         grid-template-columns: 1fr;
         row-gap: 41px;
     }
     #reviews > p {
-        padding: 29px 0 22px 0;
+        margin-top: 29px;
     }
     #pricing {
         background-image: url(assets/backgrounds/background_3_mobile.png);
@@ -453,7 +461,7 @@ h5 {
     #price-main-text {
         font-size: 28px;
         line-height: 42px;
-        padding: 12px 0 32px 0;
+        margin: 12px 0 32px 0;
     }
     .price-wrapper {
         grid-template-columns: 1fr;
@@ -485,7 +493,7 @@ h5 {
     .burger-menu {
         display: none;
     }
-    h1 {
+    #fork-app {
         margin: 69px 0 19px 0;
         font-size: 72px;
         line-height: 72px;
@@ -495,20 +503,23 @@ h5 {
         font-size: 24px;
         line-height: 24px;
     }
-    header p {
+    header {
+        padding-bottom: 470px;
+    }
+    header span {
         font-size: 14px;
         line-height: 14px;
-        padding: 14px 0 470px 0;
+        margin-top: 14px;
     }
     .main-text {
         font-size: 42px;
         line-height: 42px;
-        padding-top: 88px;
+        margin-top: 88px;
     }
     #revolutionaty-editor-text {
         font-size: 21px;
         line-height: 32px;
-        padding: 27px 0 24px 0;
+        margin: 27px 0 24px 0;
     }
     .features-main-text {
         font-size: 42px;
@@ -538,11 +549,12 @@ h5 {
     #reviews {
         background-image: url(assets/backgrounds/background_2_768px.png);
         background-size: 100% 100%;
+        padding: 86px 0 20px 0;
     }
     #reviews-main-text {
         font-size: 42px;
         line-height: 44px;
-        padding: 86px 0 88px 0;
+        margin-bottom: 88px;
     }
     .companies-wrapper {
         grid-template-columns: 1fr 1fr;
@@ -550,7 +562,7 @@ h5 {
         column-gap: 93px;
     }
     #reviews > p {
-        padding: 66px 0 20px 0;
+        margin-top: 66px;
     }
     #pixel_buddha > .company-img {
         margin-top: 44px;
@@ -565,7 +577,7 @@ h5 {
     #price-main-text {
         font-size: 42px;
         line-height: 44px;
-        padding: 88px 0 30px 0;
+        margin: 88px 0 30px 0;
     }
     .price-wrapper {
         width: 562px;
@@ -593,7 +605,7 @@ h5 {
     .nav-menu-big-screen {
         display: flex;
     }
-    h1 {
+    #fork-app {
         margin: 83px 0 19px 0;
         font-size: 82px;
         line-height: 82px;
@@ -602,23 +614,25 @@ h5 {
         font-size: 30px;
         line-height: 30px;
     }
-    header p {
+    header {
+        padding-bottom: 457px;
+    }
+    header span {
         font-size: 16px;
         line-height: 16px;
-        padding: 19px 0 457px 0;
+        margin-top: 19px;
+    }
+    main {
+        padding-bottom: 70px;
     }
     .main-text {
         font-size: 54px;
         line-height: 54px;
-        padding-top: 60px;
+        margin-top: 60px;
     }
     #revolutionaty-editor-text {
         width: 861px;
-        padding: 35px 0 13px 0;
-        margin: 0 auto;
-    }
-    #github-buttons {
-        margin-bottom: 70px;
+        margin: 35px auto 13px auto;
     }
     #features {
         background-color: #F4F4F4;
@@ -669,11 +683,12 @@ h5 {
     #reviews {
         background-image: url(assets/backgrounds/background_2_1200px.png);
         background-size: 100% 101%;
+        padding: 108px 0 19px 0;
     }
     #reviews-main-text {
         font-size: 48px;
         line-height: 48px;
-        padding: 108px 0 81px 0;
+        margin-bottom: 81px;
     }
     .companies-wrapper {
         grid-template-columns: 1fr 1fr 1fr;
@@ -682,7 +697,7 @@ h5 {
     }
     #reviews > p {
         width: 887px;
-        padding: 115px 0 19px 0;
+        margin-top: 115px;
     }
     .line-price {
         width: 780px;
@@ -694,7 +709,7 @@ h5 {
     #price-main-text {
         font-size: 48px;
         line-height: 50px;
-        padding: 112px 0 112px 0;
+        margin: 112px 0 112px 0;
     }
     .price-wrapper {
         width: 85%;
