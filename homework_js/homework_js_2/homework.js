@@ -47,6 +47,7 @@ const getFullName = (firstName, lastName) => {
 }
 const canDrive = (age, gender) => {
     if (age >= 18 && gender === "male") return true;
+    return false;
 }
 
 const person = {
@@ -67,7 +68,7 @@ const makePerson = (person, canDriveCb, getFullNameCb = (firstName, lastName) =>
     }
 };
 
-const personAlex = makePerson(person, canDrive);
+const personAlex = makePerson(person, canDrive, getFullName);
 console.log("task 3: ");
 console.log(personAlex.fullName);
 console.log(personAlex.age);
