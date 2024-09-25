@@ -55,10 +55,10 @@
 //   for(let i = 0; i < persons.length; i++) {
 //     const person = persons[i];
 //     const personBooks = person[i].books;
-//     if(person.age >= 18 && persons[i].age <= 20) {
+//     if (person.age >= 18 && person.age <= 20) {
 //       personBooks.push("First New book");
 //     }
-//     if(persons[i].age > 20) {
+//     if (person.age > 20) {
 //       personBooks.push("First New book");
 //       personBooks.push("Second New book");
 //     }
@@ -70,7 +70,7 @@
 // // 3. переменная availableItems должна содержать доступные пользователю элементы в зависимости от isLoggedIn, 
 // // если isLoggedIn = true, то все, если false, то только те, которые не приватные
 
-// const isLoggedIn = false 
+// const isLoggedIn = true 
 
 // const navigationItems = [
 //     {
@@ -87,7 +87,8 @@
 //     },
 // ]
 
-// const thirdTask = (navigationItems, availableItems) => {
+// const thirdTask = (navigationItems) => {
+//   const availableItems = [];
 //   for(let i = 0; i < navigationItems.length; i++) {
 //     const navigationItem = navigationItems[i]
 //     if (!navigationItem.isPrivate) {
@@ -97,9 +98,8 @@
 //   return availableItems;
 // }
 // // const availableItems = isLoggedIn ? navigationItems : navigationItems.filter(item => !item.isPrivate);
-// let availableItems = [];
-// availableItems = isLoggedIn ? navigationItems : thirdTask(navigationItems, availableItems);
 
+// availableItems = isLoggedIn ? navigationItems : thirdTask(navigationItems);
 
 // // 4. у нас есть функция PriorityQueue которая имеет следующие методы:
 // // enqueue(item, isPriority) - добавляет элемент в начало, если он с приоритетом, иначе в конец
@@ -121,8 +121,7 @@
 //     }
 //     const dequeub = () =>  {
 //       if (queue.length === 0) {
-//         console.log("No items in queue");
-//         return;
+//         return console.log("No items in queue");
 //       }
 //       queue.shift();
 //     }
@@ -266,6 +265,16 @@ const heroesHelper = (heroes) => {
             // filteredHeroes = filteredHeroes.filter(hero => hero.attackType === attackType);
             return heroesHelper(filteredHeroes);
         },
+        // getHeroesByAttackType: (attackType) => {
+        //     const result = [];
+        //     for (let i = 0; i < heroes.length; i++) {
+        //     const hero = heroes[i]
+        //     if (hero.attackType === attackType) {
+        //     result.push(hero);
+        //     }
+        //     }
+        //     return heroesHelper(result);
+        //     },
         getHeroesByMainAttribute: (mainAttribute) => {
             for(let i = 0; i < filteredHeroes.length; i++) {
                 if(filteredHeroes[i].mainAttribute !== mainAttribute) {
