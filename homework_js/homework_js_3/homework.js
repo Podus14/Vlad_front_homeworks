@@ -1,4 +1,4 @@
-// 1. циклом вывести в консоль каждую книгу каждого person'a
+// // 1. циклом вывести в консоль каждую книгу каждого person'a
 // const persons = [
 //     {
 //     name: "Vlad",
@@ -18,8 +18,9 @@
 // ]
 // const firstTask = (persons) => {
 //   for(let i = 0; i < persons.length; i++) {
-//     for(let j = 0; j < persons[i].books.length; j++) {
-//        console.log(persons[i].books[j]);
+//     const personBooks = person[i].books;
+//     for(let j = 0; j < personBooks.length; j++) {
+//        console.log(personBooks[j]);
 //     } 
 //   }
 // }
@@ -52,14 +53,16 @@
 
 // const secondTask = (persons) => {
 //   for(let i = 0; i < persons.length; i++) {
-//     if(persons[i].age >= 18 && persons[i].age <= 20) {
-//       persons[i].books.push("First New book");
+//     const person = persons[i];
+//     const personBooks = person[i].books;
+//     if(person.age >= 18 && persons[i].age <= 20) {
+//       personBooks.push("First New book");
 //     }
 //     if(persons[i].age > 20) {
-//       persons[i].books.push("First New book");
-//       persons[i].books.push("Second New book");
+//       personBooks.push("First New book");
+//       personBooks.push("Second New book");
 //     }
-//     console.log(persons[i].books);
+//     console.log(personBooks);
 //   }
 // }
 
@@ -83,24 +86,19 @@
 //         isPrivate: true
 //     },
 // ]
-// const availableItems = [];
-// const thirdTask = (navigationItems, isLoggedIn, availableItems) => {
-//   if(isLoggedIn) {
-//     availableItems = navigationItems;
-//   }
-//   else {
-//     for(let i = 0; i < navigationItems.length; i++) {
-//       if (!navigationItems[i].isPrivate) {
-//         availableItems.push(navigationItems[i]);
-//       }
+
+// const thirdTask = (navigationItems, availableItems) => {
+//   for(let i = 0; i < navigationItems.length; i++) {
+//     const navigationItem = navigationItems[i]
+//     if (!navigationItem.isPrivate) {
+//     availableItems.push(navigationItem);
 //     }
 //   }
-//   availableItems.forEach(element => {
-//     console.log(element);
-//   });
+//   return availableItems;
 // }
-// thirdTask(navigationItems, isLoggedIn, availableItems);
-
+// // const availableItems = isLoggedIn ? navigationItems : navigationItems.filter(item => !item.isPrivate);
+// let availableItems = [];
+// availableItems = isLoggedIn ? navigationItems : thirdTask(navigationItems, availableItems);
 
 
 // // 4. у нас есть функция PriorityQueue которая имеет следующие методы:
@@ -112,26 +110,21 @@
 // // но кто-то пришел и наговнокодил, нужно исправлять
 
 // const PriorityQueue = () => {
-//     const queue = Array.from([]);
+//     const queue = [];
   
-//     const enqueue = (item, isPriority = undefined) => {
-//       if (isPriority) {
-//         queue.unshift(item);
-//       } 
-//       else {
+//     const enqueue = (item, isPriority) => {
+//         if (isPriority) {
+//             queue.unshift(item);
+//             return;
+//         } 
 //         queue.push(item);
-//       }
-//       return queue;
 //     }
-  
 //     const dequeub = () =>  {
 //       if (queue.length === 0) {
 //         console.log("No items in queue");
+//         return;
 //       }
-//       else {
-//         queue.shift();
-//       }
-//       return queue;
+//       queue.shift();
 //     }
 
 //     const size = () => {
@@ -146,13 +139,13 @@
 //   }
   
 // const pq = PriorityQueue();  
-// // console.log(pq.size());
-// // console.log(pq.enqueue("jopa", true));
-// // console.log(pq.enqueue("jopa1", true));
-// // console.log(pq.enqueue("jopa2", false));
-// // console.log(pq.dequeub());
-// // console.log(pq.size());
-// // pq.display();
+// console.log(pq.size());
+// console.log(pq.enqueue("jopa", true));
+// console.log(pq.enqueue("jopa1", true));
+// console.log(pq.enqueue("jopa2", false));
+// console.log(pq.dequeub());
+// console.log(pq.size());
+// pq.display();
 
   
 
@@ -168,45 +161,39 @@
 // // метод checkBalance должен возвращать баланс с учетом всех трат
 
 // const createBankAccount = (balance) => {
-//   const exspenses = Array.from([]);
+//   const expenses = [];
 //   const addExpense = (expense) => {
-//     exspenses.push(expense.amount);
+//     expenses.push(expense.amount);
 //     balance -= expense.amount;
 //   }
 //   const getExpenses = () => {
-//     return exspenses;
+//     return expenses;
 //   }
 //   const removeLastExpense = () => {
-//     if(exspenses.length === 0) {
+//     if(expenses.length === 0) {
 //       console.log("No expenses");
+//       return;
 //     }
-//     else {
-//       let amount = exspenses.pop();
-//       balance += amount;
-//     }
-//     return exspenses;
+//     const amount = expenses.pop();
+//     balance += amount;
 //   }
 //   const removeFirstExpense = () => {
-//     if(exspenses.length === 0) {
+//     if(expenses.length === 0) {
 //       console.log("No expenses");
+//       return;
 //     }
-//     else {
-//       let amount = exspenses.shift();
-//       balance += amount;
-//     }
-//     return exspenses;
+//     const amount = expenses.shift();
+//     balance += amount;
 //   }
 //   const clearExpenses = () => {
-//     if(exspenses.length === 0) {
+//     if(expenses.length === 0) {
 //       console.log("No expenses");
+//       return;
 //     }
-//     else {
-//       for (let i = 0; i <= exspenses.length; i++) {
-//         let amount = exspenses.pop();
-//         balance += amount;
-//       }
+//     for (let i = 0; i <= expenses.length; i++) {
+//       const amount = expenses.pop();
+//       balance += amount;
 //     }
-//     return exspenses;
 //   }
 //   return {
 //     addExpense,
@@ -266,27 +253,28 @@ const heroesTest = [
 ]
 
 const heroesHelper = (heroes) => {
+    const filteredHeroes = heroes;
     return {
-        value: heroes,
+        value: filteredHeroes,
         getHeroesByAttackType: (attackType) => {
-            for(let i = 0; i < heroes.length; i++) {
-                if(heroes[i].attackType !== attackType) {
-                    heroes.splice(i,1);
+            for(let i = 0; i < filteredHeroes.length; i++) {
+                if(filteredHeroes[i].attackType !== attackType) {
+                    filteredHeroes.splice(i,1);
                     i--;
                 }
             }
-            // heroes = heroes.filter(hero => hero.attackType === attackType);
-            return heroesHelper(heroes);
+            // filteredHeroes = filteredHeroes.filter(hero => hero.attackType === attackType);
+            return heroesHelper(filteredHeroes);
         },
         getHeroesByMainAttribute: (mainAttribute) => {
-            for(let i = 0; i < heroes.length; i++) {
-                if(heroes[i].mainAttribute !== mainAttribute) {
-                    heroes.splice(i,1);
+            for(let i = 0; i < filteredHeroes.length; i++) {
+                if(filteredHeroes[i].mainAttribute !== mainAttribute) {
+                    filteredHeroes.splice(i,1);
                     i--;
                 }
             }
-            // heroes = heroes.filter(hero => hero.mainAttribute === mainAttribute);
-            return heroesHelper(heroes);
+            // filteredHeroes = filteredHeroes.filter(hero => hero.mainAttribute === mainAttribute);
+            return heroesHelper(filteredHeroes);
         }
     }
 }
