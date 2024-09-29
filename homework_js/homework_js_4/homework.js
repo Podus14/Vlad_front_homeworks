@@ -1,27 +1,25 @@
 // 1. переменная namesToUpperCase должна содержать имена всех персонов капсом, то есть ['VLAD', "IVAN" ...]
 
-// const persons = [
-//   {
-//     name: "Vlad",
-//     age: 23,
-//   },
-//   {
-//     name: "Ivan",
-//     age: 25,
-//   },
-//   {
-//     name: "Olga",
-//     age: 22,
-//   },
-//   {
-//     name: "Anton",
-//     age: 14,
-//   }
-// ];
+const persons = [
+  {
+    name: "Vlad",
+    age: 23,
+  },
+  {
+    name: "Ivan",
+    age: 25,
+  },
+  {
+    name: "Olga",
+    age: 22,
+  },
+  {
+    name: "Anton",
+    age: 14,
+  }
+];
 
-// const namesToUpperCase = persons.map((person) => {
-//   return person.name.toUpperCase();
-// })
+// const namesToUpperCase = persons.map((person) => person.name.toUpperCase());
 // console.log(namesToUpperCase);
 
 
@@ -36,10 +34,8 @@ const books = [
   ];
 
 // все названия книг
-const titles = books.map((book) => {
-  return book.title;
-})
-// console.log(titles);
+const titles = books.map((book) => book.title)
+console.log(titles);
 
 // книги вышедшие после 1950 года
 const newBooks = books.filter((book) => book.year > 1950);
@@ -110,11 +106,11 @@ const someAreRomance = books.some((book) => book.genre === "romance");
 // ];
 
 // const usersWithTransactions = users.map((user) => {
-//   const transactionsForOneUser = transactions.filter((transaction) => transaction.userId === user.id);
-//   const sortedTransactionsForOneUser = transactionsForOneUser.sort((a, b) => a.amount - b.amount);
+//   const userTransactions = transactions.filter((transaction) => transaction.userId === user.id);
+//   const sortedUserTransactions = userTransactions.sort((a, b) => a.amount - b.amount);
 //   return {
 //     ...user,
-//     sortedTransactionsForOneUser}
+//     sortedUserTransactions}
 // })
 // console.log(usersWithTransactions);
 
@@ -140,11 +136,12 @@ const someAreRomance = books.some((book) => book.genre === "romance");
 const map = (arr, func) => {
   const newArr = []
   for (let i = 0; i < arr.length; i++){
-   newArr.push(func(arr[i]));
+   newArr.push(func(arr[i], i, arr));
   }
   return newArr;
 }
 
 const doubleArr = map([1, 2, 3], (el) => el * 2);
 console.log(doubleArr);
-// // [2, 4, 6]
+// // // [2, 4, 6]
+// doubleArr = [1, 2, 3]
