@@ -1,87 +1,79 @@
-const body = document.querySelector("body");
-
+const ADMIN_LOGIN = 'admin'
+const ADMIN_PASSWORD = '1234'
 //Создание формы логин пароль
-const scriptJS = document.querySelector("script");
-const newFormSubmit = document.createElement("form");
-const newH1 = document.createElement("h1");
-const newInputLogin = document.createElement("input");
-const newInputPass = document.createElement("input");
-const newSubmitButton = document.createElement("button");
-newH1.innerHTML = "HELLO!";
-newInputLogin.type = "text";
-newInputLogin.placeholder = "login";
-newInputLogin.style.display = "block";
-newInputPass.type = "password";
-newInputPass.style.display = "block";
-newInputPass.placeholder="password";
-newSubmitButton.innerHTML = "Submit";
-newFormSubmit.setAttribute('onsubmit', 'return false;');
-newFormSubmit.append(newH1, newInputLogin, newInputPass, newSubmitButton);
+const createInitialForm = () => {
+    const formSubmit = document.createElement("form");
+    formSubmit.setAttribute('onsubmit', 'return false;');
+    const h1 = document.createElement("h1");
+    h1.innerHTML = "HELLO!";
+    const inputLogin = document.createElement("input");
+    inputLogin.type = "text";
+    inputLogin.placeholder = "login";
+    inputLogin.style.display = "block";
+    const inputPass = document.createElement("input");
+    inputPass.type = "password";
+    inputPass.style.display = "block";
+    inputPass.placeholder="password";
+    const submitButton = document.createElement("button");
+    submitButton.innerHTML = "Submit";
+    formSubmit.append(h1, inputLogin, inputPass, submitButton);
+    body.appendChild(formSubmit);
+    // Отправка формы, если же логин админ и пароль 1234, то появляется to do форма, если нет, то ошибка
+    submitButton.addEventListener("click", () => {
+    if (inputLogin.value !== ADMIN_LOGIN || inputPass.value !== ADMIN_PASSWORD) {
+        h1.innerHTML = "ERROR";
+        return;
+    }
+    formSubmit.remove();
+    CreateToDoForm();
+    });
+}
+
+const body = document.querySelector("body");
+body.onload = createInitialForm();
 
 //Создание формы to do
-const newFormToDo = document.createElement("form");
-const newInputTextToDo = document.createElement("input");
-const newToDoButton = document.createElement("button");
-const newToDoUl = document.createElement("ul");
-const newDiv = document.createElement("div");
-let id_index = 0;
-let numberOfToDo = 0;
-let lineThrought = false;
-newInputTextToDo.placeholder = "New todo";
-newInputTextToDo.style.display = "block";
-newToDoButton.innerHTML = "Add new todo";
-newToDoUl.style.listStyleType = "none";
-newDiv.innerHTML = "No todos yet";
-newFormToDo.setAttribute('onsubmit', 'return false;');
-newFormToDo.append(newInputTextToDo, newToDoButton, newToDoUl);
+const CreateToDoForm = () => {
+    const formToDo = document.createElement("form");
+    formToDo.setAttribute('onsubmit', 'return false;');
+    const inputTextToDo = document.createElement("input");
+    inputTextToDo.placeholder = "New todo";
+    inputTextToDo.style.display = "block";
+    const toDoButton = document.createElement("button");
+    toDoButton.innerHTML = "Add new todo";
+    const toDoUl = document.createElement("ul");
+    toDoUl.style.listStyleType = "none";
+    const divNoToDo = document.createElement("div");
+    divNoToDo.innerHTML = "No todos yet";
+    formToDo.append(inputTextToDo, toDoButton, toDoUl, divNoToDo);
+    body.appendChild(formToDo);
+    let id = 0;
 
-
-//Добавление формы логин пароль на сайт при заходе
-body.appendChild(newFormSubmit);
-
-
-// Отправка формы, если же логин админ и пароль 1234, то появляется to do форма, если нет, то ошибка
-newSubmitButton.addEventListener("click", () => {
-    if (newInputLogin.value === "admin" && newInputPass.value === "1234") {
-        newFormSubmit.remove();
-        if (id_index === 0) {
-            newFormToDo.appendChild(newDiv);
-        }
-        body.appendChild(newFormToDo);
-    }
-    newH1.innerHTML = "ERROR";
- });
-
-// Добавление to do, их удаление, зачеркивание текста
-newToDoButton.addEventListener("click", () => {
-    if (newInputTextToDo.value !== "") {
-        newDiv.remove();
-        const newLi = document.createElement("li");
-        const newToDoText = document.createElement("span");
-        const newDeleteButton = document.createElement("button");
-        newToDoText.innerHTML = newInputTextToDo.value;
-        newDeleteButton.innerHTML = " X";
-        id_index += 1;
-        numberOfToDo += 1;
-        newLi.id = id_index;
-        newLi.append(newDeleteButton, newToDoText);
-        newToDoUl.appendChild(newLi);
-        newDeleteButton.addEventListener("click", () => {
-            newLi.remove();
-            numberOfToDo -= 1;
-            if (numberOfToDo === 0) {
-                newFormToDo.appendChild(newDiv);
+    // Добавление to do, их удаление, зачеркивание текста
+    toDoButton.addEventListener("click", () => {
+        if (inputTextToDo.value.trim() === "") return;
+        divNoToDo.remove();
+        const li = document.createElement("li");
+        const toDoText = document.createElement("span");
+        const deleteButton = document.createElement("button");
+        toDoText.innerHTML = inputTextToDo.value;
+        li.classList.add("toDo");
+        deleteButton.innerHTML = " X";
+        id += 1;
+        li.id = id;
+        li.append(toDoText, deleteButton);
+        toDoUl.appendChild(li);
+        deleteButton.addEventListener("click", () => {
+            li.remove();
+            if (!document.querySelector(".toDo")){
+                formToDo.appendChild(divNoToDo);
             }
         })
-        newToDoText.addEventListener("click", () => {
-            if (lineThrought) {
-                newToDoText.style.textDecoration = "line-through";
-                lineThrought = false;
-            }
-            else {
-                newToDoText.style.textDecoration = "none";
-                lineThrought = true;
-            }
+        toDoText.addEventListener("click", () => {
+            const isCompleted = toDoText.style.textDecoration === "line-through";
+            toDoText.style.textDecoration = isCompleted ? "none" : "line-through";
         })
-    }
- })
+    })
+}
+
+
