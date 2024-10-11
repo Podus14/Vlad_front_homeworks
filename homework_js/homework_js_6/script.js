@@ -99,16 +99,9 @@ const сreateToDoForm = () => {
 
             const spanText = li.querySelector('span').textContent;
 
-            // todos = JSON.parse(localStorage.getItem(TODO_KEY));
-            // console.log(todos);
-            // localStorage.setItem(TODO_KEY, JSON.stringify(todos.filter(todo => todo !== spanText)));
+            const todos = JSON.parse(localStorage.getItem(TODO_KEY));
 
-            // const todosJSON = localStorage.getItem(TODO_KEY);
-            // todos = JSON.parse(todosJSON); 
-
-            todos = todos.filter(todo => todo !== spanText)
-
-            localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+            localStorage.setItem(TODO_KEY,  JSON.stringify(todos.filter(todo => todo !== spanText)));
             
             li.remove(); 
                  
@@ -133,24 +126,18 @@ const сreateToDoForm = () => {
 
         createToDo(inputTextToDo.value);
 
-        // todos.push(inputTextToDo.value);
+        const todos = JSON.parse(localStorage.getItem(TODO_KEY));
 
-        localStorage.setItem(TODO_KEY, JSON.stringify(todos));
-
+        localStorage.setItem(TODO_KEY, JSON.stringify(todos ? [...todos, inputTextToDo.value] : [inputTextToDo.value]));
+        
         inputTextToDo.value = "";
     })
 
     // Взятие TODO из local storage
-    let todos = [];
-    if (!localStorage.getItem(TODO_KEY)) return;
-    todos = JSON.parse(localStorage.getItem(TODO_KEY));
-    // console.log(todos)
-    // let todos = [];
-    // const todosJSON = localStorage.getItem(TODO_KEY);
+    const todos = JSON.parse(localStorage.getItem(TODO_KEY));
 
     if (todos && todos.length) {
         divNoToDo.remove();
-        // const savedTodos = JSON.parse(todosJSON);
         todos.forEach(todo => createToDo(todo)); 
     }
 }
