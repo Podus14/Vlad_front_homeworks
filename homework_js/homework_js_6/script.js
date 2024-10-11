@@ -1,5 +1,6 @@
 const ADMIN_LOGIN = 'admin'
 const ADMIN_PASSWORD = '1234'
+const TODO_KEY = "ToDos"
 
 //Создание формы логин пароль
 const createInitialForm = () => {
@@ -81,12 +82,12 @@ const сreateToDoForm = () => {
    
     
     // Добавление to do, их удаление, зачеркивание текста
-    const createToDo = (TextToDo) => {
+    const createToDo = (textToDo) => {
         const li = document.createElement("li");
         li.classList.add("toDo");
 
         const toDoTextSpan = document.createElement("span");
-        toDoTextSpan.innerHTML = TextToDo;
+        toDoTextSpan.innerHTML = textToDo;
 
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = " X";
@@ -94,23 +95,25 @@ const сreateToDoForm = () => {
         li.append(toDoTextSpan, deleteButton);
         toDoUl.appendChild(li);
 
-        todos.push(TextToDo);
-        localStorage.setItem("Todos", JSON.stringify(todos));
-
         deleteButton.addEventListener("click", () => {
-            const todosJSON = localStorage.getItem('Todos');
-            todos = JSON.parse(todosJSON); 
 
             const spanText = li.querySelector('span').textContent;
+
+            // todos = JSON.parse(localStorage.getItem(TODO_KEY));
+            // console.log(todos);
+            // localStorage.setItem(TODO_KEY, JSON.stringify(todos.filter(todo => todo !== spanText)));
+
+            // const todosJSON = localStorage.getItem(TODO_KEY);
+            // todos = JSON.parse(todosJSON); 
+
             todos = todos.filter(todo => todo !== spanText)
 
-            localStorage.removeItem("Todos");
-            localStorage.setItem("Todos", JSON.stringify(todos));
+            localStorage.setItem(TODO_KEY, JSON.stringify(todos));
             
             li.remove(); 
                  
             if (!document.querySelector(".toDo")){
-                localStorage.removeItem("Todos");
+                localStorage.removeItem(TODO_KEY);
                 formToDo.appendChild(divNoToDo);
             }
         })
@@ -130,17 +133,25 @@ const сreateToDoForm = () => {
 
         createToDo(inputTextToDo.value);
 
+        // todos.push(inputTextToDo.value);
+
+        localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+
         inputTextToDo.value = "";
     })
 
     // Взятие TODO из local storage
     let todos = [];
-    const todosJSON = localStorage.getItem('Todos');
+    if (!localStorage.getItem(TODO_KEY)) return;
+    todos = JSON.parse(localStorage.getItem(TODO_KEY));
+    // console.log(todos)
+    // let todos = [];
+    // const todosJSON = localStorage.getItem(TODO_KEY);
 
-    if (todosJSON) {
+    if (todos && todos.length) {
         divNoToDo.remove();
-        const savedTodos = JSON.parse(todosJSON);
-        savedTodos.forEach(todo => createToDo(todo)); 
+        // const savedTodos = JSON.parse(todosJSON);
+        todos.forEach(todo => createToDo(todo)); 
     }
 }
 
