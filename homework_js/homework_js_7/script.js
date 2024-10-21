@@ -8,7 +8,6 @@ const createInitialForm = () => {
 
     const h1 = document.createElement("h1");
     h1.innerHTML = "HELLO!";
-
     
     const inputName = document.createElement("input");
     inputName.type = "text";
@@ -36,7 +35,7 @@ const createInitialForm = () => {
     body.appendChild(formSubmit);
 
     // Отправка формы, если же логин админ и пароль 1234, то появляется to do форма, если нет, то ошибка
-    loginButton.addEventListener("click", (e) => {
+    loginButton.addEventListener("click", e => {
         e.preventDefault();
         fetch("https://hono-cloudflare.onrender.com/auth/login", {
             method: "POST",
@@ -48,21 +47,13 @@ const createInitialForm = () => {
             headers: { "Content-Type": "application/json" },
         })
             .then((response) => response.json())
-            .then(() => {
-                formSubmit.remove();
-                сreateToDoForm();
+            .then((data) => {
+                if (data.success !== false){
+                    formSubmit.remove();
+                    сreateToDoForm();
+                }
+                h1.innerHTML = "ERROR!";
             }).catch((error) => console.log(error));
-        
-        // if (inputLogin.value !== ADMIN_LOGIN || inputPass.value !== ADMIN_PASSWORD) {
-        //     h1.innerHTML = "ERROR";
-        //     inputLogin.value = "";
-        //     inputPass.value = "";
-        //     return;
-        // }
-
-        // formSubmit.remove();
-        // сreateToDoForm();
-        // localStorage.setItem(ADMIN_LOGIN, "true");
     });
     registerButton.addEventListener("click", e => {
         e.preventDefault();
@@ -76,16 +67,24 @@ const createInitialForm = () => {
               }),
             headers: { "Content-Type": "application/json" },
         })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success === false) h1.innerHTML = "ERROR!"
+        })
+        .catch((error) => console.log(error));
     })
 }
 
 const body = document.querySelector("body");
 body.onload = () => {
-    if (localStorage.getItem(ADMIN_LOGIN) === "true") {
-        сreateToDoForm();
-        return;
-    }
-    createInitialForm();
+    fetch("https://hono-cloudflare.onrender.com/auth/verify", {
+        method: "GET",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+    })
+    .then((response) => response.json())
+    .then(data => data.message !== "Not Found" ? сreateToDoForm() : createInitialForm())
+    .catch((error) => console.log(error));
 }
 
 //Создание формы to do
@@ -113,15 +112,21 @@ const сreateToDoForm = () => {
     logoutDoButton.innerHTML = "Logout";
 
     logoutDoButton.addEventListener("click", () => {
+        fetch("https://hono-cloudflare.onrender.com/auth/logout", {
+            method: "GET",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+        })
+        .then((response) => response.json())
+        .catch((error) => console.log(error));
         formToDo.remove();
-        // localStorage.removeItem(ADMIN_LOGIN);
         createInitialForm();
     })
 
 
     formToDo.append(inputTitleToDo, inputDescriptionToDo, toDoButton, logoutDoButton, toDoUl, divNoToDo);
     body.appendChild(formToDo);
-   
+    
     
     // Добавление to do, их удаление, зачеркивание текста
     const createToDo = (textToDoTitle, textToDoDescription) => {
@@ -140,29 +145,11 @@ const сreateToDoForm = () => {
         li.append(toDoTextTitle,toDoTextDescription, deleteButton);
         toDoUl.appendChild(li);
 
-        deleteButton.addEventListener("click", () => {
-
-            // const spanText = li.querySelector('span').textContent;
-
-            // const todos = JSON.parse(localStorage.getItem(TODO_KEY));
-
-            // localStorage.setItem(TODO_KEY,  JSON.stringify(todos.filter(todo => todo !== spanText)));
-            
-            // li.remove(); 
-                 
-            // if (!document.querySelector(".toDo")){
-            //     localStorage.removeItem(TODO_KEY);
-            //     formToDo.appendChild(divNoToDo);
-            // }
-        })
+         deleteButton.addEventListener("click", (e) => {
+            e.preventDefault()
+         })
         
         toDoTextTitle.addEventListener("click", () => {
-
-            // const isCompleted = true;
-            // if (isCompleted) {
-            //     toDoTextTitle.style.textDecoration = "line-through";
-            //     toDoTextDescription.style.textDecoration === "line-through";
-            // }
 
             const isCompletedTitle = toDoTextTitle.style.textDecoration === "line-through";
             toDoTextTitle.style.textDecoration = isCompletedTitle ? "none" : "line-through";
@@ -181,47 +168,37 @@ const сreateToDoForm = () => {
         
         divNoToDo.remove();
 
-        const li = createToDo(inputTitleToDo.value, inputDescriptionToDo.value);
-        
-        const isCompleted = false;
-        const toDoTextTitle = li.querySelector('div')
-        console.log(toDoTextTitle)
-        const isCompletedTitle = toDoTextTitle.style.textDecoration === "line-through";
-        if (isCompletedTitle){
-             isCompleted = true;
-        }
+        createToDo(inputTitleToDo.value, inputDescriptionToDo.value);
 
-        // fetch("https://hono-cloudflare.onrender.com/todos", {
-        //     method: "POST",
-        //     credentials: "include",
-        //     body: JSON.stringify({
-        //         title: inputTitleToDo.value,
-        //         description: inputDescriptionToDo.value,
-        //         completed: isCompleted,
-        //       }),
-        //     headers: { "Content-Type": "application/json" },
-        // })
-        // .then((response) => response.json())
-        // .then((data) => console.log(data))
-        // .catch((error) => console.log(error));
-
-
-        // const todos = JSON.parse(localStorage.getItem(TODO_KEY));
-
-        // localStorage.setItem(TODO_KEY, JSON.stringify(todos ? [...todos, inputTitleToDo.value] : [inputTitleToDo.value]));
+        fetch("https://hono-cloudflare.onrender.com/todos", {
+            method: "POST",
+            credentials: "include",
+            body: JSON.stringify({
+                title: inputTitleToDo.value,
+                description: inputDescriptionToDo.value,
+                completed: false,
+              }),
+            headers: { "Content-Type": "application/json" },
+        })
+        .then((response) => response.json())
+        .catch((error) => console.log(error));
         
         inputTitleToDo.value = "";
         inputDescriptionToDo.value = "";
     })
 
-    // Взятие TODO из local storage
-    // const todos = JSON.parse(localStorage.getItem(TODO_KEY));
-
-    // if (todos && todos.length) {
-    //     divNoToDo.remove();
-    //     todos.forEach(todo => createToDo(todo)); 
-    // }
-
+    fetch("https://hono-cloudflare.onrender.com/todos", {
+        method: "GET",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        data.forEach(todo => createToDo(todo.title, todo.description))
+        divNoToDo.remove();
+    })
+    .catch((error) => console.log(error));
 
 }
 
