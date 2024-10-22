@@ -1,7 +1,3 @@
-const ADMIN_LOGIN = 'admin'
-const ADMIN_PASSWORD = '1234'
-const TODO_KEY = "ToDos"
-
 //Создание формы логин пароль
 const createInitialForm = () => {
     const formSubmit = document.createElement("form");
@@ -48,7 +44,7 @@ const createInitialForm = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                if (data.success !== false){
+                if (data.success !== false && data !== false){
                     formSubmit.remove();
                     сreateToDoForm();
                 }
@@ -69,7 +65,11 @@ const createInitialForm = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            if (data.success === false) h1.innerHTML = "ERROR!"
+            if (data.success !== false && data !== false){
+                formSubmit.remove();
+                сreateToDoForm();
+            }
+            h1.innerHTML = "ERROR!";
         })
         .catch((error) => console.log(error));
     })
