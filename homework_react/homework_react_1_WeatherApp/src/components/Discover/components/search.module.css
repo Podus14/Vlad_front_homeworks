@@ -5,9 +5,14 @@
 .input {
     width: 400px;
     border-radius: 5px;
-    border: 0px;
+    border: 2px solid white; /* Задаем основной цвет рамки */
     font-size: 10px;
     padding-left: 5px;
+    outline: none; 
+}
+input:focus {
+    border-color: #99ccff; /* Измените на нужный цвет, который соответствует фону */
+    /* box-shadow: 0 0 5px #cce7ff; */
 }
 .button {
     margin-left: 5px;
@@ -15,7 +20,7 @@
     align-items: center;
     background-color: black;
     border-radius: 5px;
-    border: 0px;
+    border: none;
     padding: 0;
 }
 .img {
