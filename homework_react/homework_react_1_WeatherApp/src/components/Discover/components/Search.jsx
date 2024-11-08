@@ -8,10 +8,11 @@ export const Search = ({ setSearchResults }) => {
 
     async function searchCity(searchText) {
         const response = await fetch(
-            `https://weatherapi-com.p.rapidapi.com/forecast.json?q=London&days=5`,
+            // `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${searchText}&days=5`,
+            `https://open-weather13.p.rapidapi.com/city/${searchText}/EN`,
         {
             headers: {
-                "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
+                "x-rapidapi-host": "open-weather13.p.rapidapi.com",
                 "x-rapidapi-key": "96e9d01e1fmsh22e04d05f6dfc4ep1bd543jsn0bbf1b6c78fa"
             }
         }
