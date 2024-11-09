@@ -3,7 +3,7 @@
     justify-content: center;
 }
 .input {
-    width: 800px;
+    width: 100%;
     border-radius: 5px;
     border: 4px solid white; /* Задаем основной цвет рамки */
     font-size: 20px;

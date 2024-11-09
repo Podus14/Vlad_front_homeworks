@@ -1,19 +1,17 @@
 import React from "react"
-import { CurrentWeather } from "./components/CurrentWeather"
+import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather"
+import { Forecast } from "./components/Forecast/Forecast"
 
-export const SearchResults = ( {searchResults} ) => {
+export const SearchResults = ( {searchCurrentWeather} ) => {
 
-    if (!searchResults) {
+    if (!searchCurrentWeather) {
         return <div>No information for this city</div>;
     }
 
-
     return (
-        <div>
-            {/* {
-                searchResults.map(searchResults)
-                } */}
-            
-        </div>
+        <>
+            <CurrentWeather searchCurrentWeather = {searchCurrentWeather}/>
+            <Forecast/>
+        </>
     )
 }

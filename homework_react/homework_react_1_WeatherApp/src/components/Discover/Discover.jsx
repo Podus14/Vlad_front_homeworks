@@ -2,12 +2,12 @@ import React from "react"
 import Style from "./discover.module.css"
 import { Search } from "./components/Search";
 
-export const Discover = ({ setSearchResults }) => {
+export const Discover = ({ setSearchCurrentWeather, searchCurrentWeather,  setSearchForecast}) => {
     return (
         <div className={Style.container}>
             <h2 className={Style.text}>WeatherNow
             </h2>
-            <Search setSearchResults={setSearchResults} />
+            <Search setSearchCurrentWeather={setSearchCurrentWeather} searchCurrentWeather= {searchCurrentWeather} setSearchForecast= {setSearchForecast} />
         </div>
     );
 }

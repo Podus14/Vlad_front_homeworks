@@ -3,12 +3,14 @@ import { Discover } from "./components/Discover/Discover"
 import { SearchResults } from "./components/SearchResults/SearchResults";
 
 function App() {
-  const [searchResults, setSearchResults] = useState(null);
-  console.log(searchResults);
+  const [searchCurrentWeather, setSearchCurrentWeather] = useState(null);
+  const [searchForecast, setSearchForecast] = useState(null);
+  
+  // console.log(searchCurrentWeather);
   return ( 
     <main className="container">
-      <Discover setSearchResults={setSearchResults} />
-      <SearchResults searchResults= {searchResults}/>
+      <Discover setSearchCurrentWeather={setSearchCurrentWeather} searchCurrentWeather= {searchCurrentWeather} setSearchForecast= {setSearchForecast}/>
+      <SearchResults searchCurrentWeather= {searchCurrentWeather} />
     </main>
   )
 }
