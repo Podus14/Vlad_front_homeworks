@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Style from "./search.module.css"
-import SearchIcon from "./search.svg"
+import SearchIcon from "./icons/search.svg"
 import {toUpperFirstLetter} from "./toUpperFirstLetter.js"
 
 export const Search = ({setSearchCurrentWeather, searchCurrentWeather,  setSearchForecast}) => {
@@ -13,7 +13,7 @@ export const Search = ({setSearchCurrentWeather, searchCurrentWeather,  setSearc
         {
             headers: {
                 "x-rapidapi-host": "open-weather13.p.rapidapi.com",
-                "x-rapidapi-key": "f7ee55ecb5msh2bc31781677730dp10366cjsn670081f4a396"
+                "x-rapidapi-key": "a24569974emshfc4eb41cfaf16c6p1162a0jsn17a6c0ed382b"
             }
         }
         );
@@ -27,7 +27,7 @@ export const Search = ({setSearchCurrentWeather, searchCurrentWeather,  setSearc
         {
             headers: {
                 "x-rapidapi-host": "open-weather13.p.rapidapi.com",
-                "x-rapidapi-key": "f7ee55ecb5msh2bc31781677730dp10366cjsn670081f4a396"
+                "x-rapidapi-key": "a24569974emshfc4eb41cfaf16c6p1162a0jsn17a6c0ed382b"
             }
         }
         );
@@ -37,6 +37,22 @@ export const Search = ({setSearchCurrentWeather, searchCurrentWeather,  setSearc
 
     async function handleSearch () {
         const data = await searchCurrentWeatherF(searchText);
+        const dataForecast = await searchForecast(data.coord.lon, data.coord.lat);
+        
+        
+        const selectedIndices = [7, 15, 23, 31, 39];
+        const filteredDataForecast = selectedIndices.map(index => {
+            const item = dataForecast.list[index];
+            const date = new Date(item.dt_txt);
+            const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'short' });
+            const fahrenheit = (item.main.temp - 273.15) * 9/5 + 32;
+            return {
+                day: dayOfWeek,
+                temperature: Math.round(fahrenheit),
+                description: item.weather[0].description
+            };
+        });
+
         setSearchCurrentWeather( {
             city: data.name,
             temperature: Math.round(data.main.temp),
@@ -49,8 +65,7 @@ export const Search = ({setSearchCurrentWeather, searchCurrentWeather,  setSearc
             }
         }
         );
-        const dataForecast = await searchForecast(searchCurrentWeather.coordinates.lon, searchCurrentWeather.coordinates.lat);
-        console.log(dataForecast);
+        setSearchForecast({filteredDataForecast})
     }
 
     return (

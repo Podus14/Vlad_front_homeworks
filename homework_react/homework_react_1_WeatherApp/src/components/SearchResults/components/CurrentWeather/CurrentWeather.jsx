@@ -1,7 +1,7 @@
 import React from "react"
 import Style from "./CurrentWeather.module.css"
-import HumidityIcon from "./humidity.svg"
-import WindIcon from "./wind.svg"
+import HumidityIcon from "./icons/humidity.svg"
+import WindIcon from "./icons/wind.svg"
 
 
 export const CurrentWeather = ( {searchCurrentWeather} ) => {

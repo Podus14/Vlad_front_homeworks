@@ -2,7 +2,7 @@ import React from "react"
 import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather"
 import { Forecast } from "./components/Forecast/Forecast"
 
-export const SearchResults = ( {searchCurrentWeather} ) => {
+export const SearchResults = ( {searchCurrentWeather, searchForecast} ) => {
 
     if (!searchCurrentWeather) {
         return <div>No information for this city</div>;
@@ -11,7 +11,7 @@ export const SearchResults = ( {searchCurrentWeather} ) => {
     return (
         <>
             <CurrentWeather searchCurrentWeather = {searchCurrentWeather}/>
-            <Forecast/>
+            <Forecast searchForecast = {searchForecast}/>
         </>
     )
 }
