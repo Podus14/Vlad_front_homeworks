@@ -36,11 +36,13 @@ export const Search = ({setSearchCurrentWeather,  setSearchForecast}) => {
     }
 
     async function handleSearch () {
-
-        const currentWeatherData = await searchCurrentWeatherF(searchText);
+        if (searchText !== ""){
+            const currentWeatherData = await searchCurrentWeatherF(searchText);
         
-        
-        if (currentWeatherData.cod !== "404") {
+            if (currentWeatherData.cod === "404") {
+                setSearchCurrentWeather(currentWeatherData);
+                return;
+            }
             const dataForecast = await searchForecast(currentWeatherData.coord.lon, currentWeatherData.coord.lat);
             const selectedIndices = [7, 15, 23, 31, 39];
             const filteredDataForecast = selectedIndices.map(index => {
@@ -53,7 +55,7 @@ export const Search = ({setSearchCurrentWeather,  setSearchForecast}) => {
                 temperature: Math.round(fahrenheit),
                 description: item.weather[0].description
             };
-        });
+            });
             setSearchCurrentWeather( {
                 city: currentWeatherData.name,
                 temperature: Math.round(currentWeatherData.main.temp),
@@ -67,26 +69,18 @@ export const Search = ({setSearchCurrentWeather,  setSearchForecast}) => {
             });
             setSearchForecast({filteredDataForecast})
         }
-        else {
-            setSearchCurrentWeather(currentWeatherData);
-        }
-        
     }
 
     return (
         <div className={Style.container}>
             <input type="text" className={Style.input} placeholder="Entry city name" onChange={e => setSearchText(e.target.value.trim())} onKeyDown={(e) => {
                 const trimmedText = e.target.value.trim();
-                if (e.key === "Enter" && trimmedText !== ""){
+                if (e.key === "Enter"){
                     setSearchText(trimmedText);
                     handleSearch();
                 }
                 }}/>
-            <button className={Style.button} onClick={(e) => {
-                    if (searchText !== "") {
-                        handleSearch();
-                    }   
-                }}>
+            <button className={Style.button} onClick={handleSearch}>
                 <img className={Style.img} src={SearchIcon} alt="searchIcon"/>
                 <span className={Style.text}>Search</span>
             </button>
