@@ -6,10 +6,9 @@ export const Forecast = ({ searchForecast }) => {
     return (
         <>
             <h3 className={Style.text}>5-Day Forecast</h3>
-            {console.log(searchForecast)}
             <div className={Style.container}>
-                {searchForecast.filteredDataForecast.map((day, index) => {
-                    return <ForecastCard key= {index} day = {day}/>
+                {searchForecast.filteredDataForecast.map((day) => {
+                    return <ForecastCard key= {day.day} day = {day}/>
                 }            
                 )}
             </div>

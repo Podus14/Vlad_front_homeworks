@@ -23,6 +23,10 @@ input:focus {
     border: none;
     padding: 0;
 }
+button:hover {
+    cursor: pointer;
+}
+
 .img {
     padding: 10px ;
     height: 20px;

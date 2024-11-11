@@ -1,13 +1,13 @@
 import React from "react";
 import Style from "./ForecastCard.module.css"
-import BrokenClouds from "./icons/broken_clouds.svg"
-import LightRain from "./icons/light_rain.svg"
-import ModerateRain from "./icons/moderate_rain.svg"
-import OvercastClouds from "./icons/overcast_clouds.svg"
-import ScatteredClouds from "./icons/scattered_clouds.svg"
-import ClearSky from "./icons/clear_sky.svg"
-import LightSnow from "./icons/light_snow.svg"
-import FewClouds from "./icons/few_clouds.svg"
+import BrokenClouds from "@icons/broken_clouds.svg"
+import LightRain from "@icons/light_rain.svg"
+import ModerateRain from "@icons/moderate_rain.svg"
+import OvercastClouds from "@icons/overcast_clouds.svg"
+import ScatteredClouds from "@icons/scattered_clouds.svg"
+import ClearSky from "@icons/clear_sky.svg"
+import LightSnow from "@icons/light_snow.svg"
+import FewClouds from "@icons/few_clouds.svg"
 
 export const ForecastCard = ( {day} ) => {
 
