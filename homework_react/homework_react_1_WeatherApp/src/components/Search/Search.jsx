@@ -36,39 +36,39 @@ export const Search = ({setSearchCurrentWeather,  setSearchForecast}) => {
     }
 
     async function handleSearch () {
-        if (searchText !== ""){
-            const currentWeatherData = await searchCurrentWeatherF(searchText);
+        if (searchText === "") return
         
-            if (currentWeatherData.cod === "404") {
-                setSearchCurrentWeather(currentWeatherData);
-                return;
-            }
-            const dataForecast = await searchForecast(currentWeatherData.coord.lon, currentWeatherData.coord.lat);
-            const selectedIndices = [7, 15, 23, 31, 39];
-            const filteredDataForecast = selectedIndices.map(index => {
-            const item = dataForecast.list[index];
-            const date = new Date(item.dt_txt);
-            const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'short' });
-            const fahrenheit = (item.main.temp - 273.15) * 9/5 + 32;
-            return {
-                day: dayOfWeek,
-                temperature: Math.round(fahrenheit),
-                description: item.weather[0].description
-            };
-            });
-            setSearchCurrentWeather( {
-                city: currentWeatherData.name,
-                temperature: Math.round(currentWeatherData.main.temp),
-                description: toUpperFirstLetter(currentWeatherData.weather[0].description),
-                humidity: currentWeatherData.main.humidity,
-                windSpeed: Math.round(currentWeatherData.wind.speed),
-                coordinates: {
-                    lat: currentWeatherData.coord.lat,
-                    lon: currentWeatherData.coord.lon
-                }
-            });
-            setSearchForecast({filteredDataForecast})
+        const currentWeatherData = await searchCurrentWeatherF(searchText);
+    
+        if (currentWeatherData.cod === "404") {
+            setSearchCurrentWeather(currentWeatherData);
+            return;
         }
+        const dataForecast = await searchForecast(currentWeatherData.coord.lon, currentWeatherData.coord.lat);
+        const selectedIndices = [7, 15, 23, 31, 39];
+        const filteredDataForecast = selectedIndices.map(index => {
+        const item = dataForecast.list[index];
+        const date = new Date(item.dt_txt);
+        const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const fahrenheit = (item.main.temp - 273.15) * 9/5 + 32;
+        return {
+            day: dayOfWeek,
+            temperature: Math.round(fahrenheit),
+            description: item.weather[0].description
+        };
+        });
+        setSearchCurrentWeather( {
+            city: currentWeatherData.name,
+            temperature: Math.round(currentWeatherData.main.temp),
+            description: toUpperFirstLetter(currentWeatherData.weather[0].description),
+            humidity: currentWeatherData.main.humidity,
+            windSpeed: Math.round(currentWeatherData.wind.speed),
+            coordinates: {
+                lat: currentWeatherData.coord.lat,
+                lon: currentWeatherData.coord.lon
+            }
+        });
+        setSearchForecast({filteredDataForecast})
     }
 
     return (
