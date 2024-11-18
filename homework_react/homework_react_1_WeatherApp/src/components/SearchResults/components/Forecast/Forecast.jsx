@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Style from "./Forecast.module.css"
 import { ForecastCard } from "./components/ForecastCard";
+import { SearchContext } from "@searchContext/SearchContext";
 
-export const Forecast = ({ searchForecast }) => {
+export const Forecast = () => {
+    const {searchForecast} = useContext(SearchContext);
     return (
         <>
             <h3 className={Style.text}>5-Day Forecast</h3>

@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather"
 import { Forecast } from "./components/Forecast/Forecast"
 import Style from "./SearchResults.module.css"
+import { SearchContext } from "@searchContext/SearchContext"
 
-export const SearchResults = ( {searchCurrentWeather, searchForecast} ) => {
+export const SearchResults = () => {
 
+    const {searchCurrentWeather} = useContext(SearchContext)
     if (!searchCurrentWeather) {
         return <div className={Style.text}>Enter the city</div>;
     }
@@ -15,8 +17,8 @@ export const SearchResults = ( {searchCurrentWeather, searchForecast} ) => {
 
     return (
         <>
-            <CurrentWeather searchCurrentWeather = {searchCurrentWeather}/>
-            <Forecast searchForecast = {searchForecast}/>
+            <CurrentWeather/>
+            <Forecast/>
         </>
     )
 }
