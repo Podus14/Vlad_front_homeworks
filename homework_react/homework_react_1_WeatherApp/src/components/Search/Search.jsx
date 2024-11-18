@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Style from "./search.module.css"
 import SearchIcon from "@icons/search.svg"
 import {toUpperFirstLetter} from "@utils/toUpperFirstLetter.js"
@@ -7,7 +7,12 @@ import { SearchContext } from "@searchContext/SearchContext";
 export const Search = () => {
     
     const {setSearchCurrentWeather, setSearchForecast} = useContext(SearchContext);
-    const [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState("London");
+
+    useEffect(() => {
+        handleSearch();
+    }, []);
+
 
     async function searchCurrentWeatherF(searchText) {
         const response = await fetch(
