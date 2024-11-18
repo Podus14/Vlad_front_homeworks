@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Style from "./search.module.css"
 import SearchIcon from "@icons/search.svg"
 import {toUpperFirstLetter} from "@utils/toUpperFirstLetter.js"
+import { SearchContext } from "@searchContext/SearchContext";
 
-export const Search = ({setSearchCurrentWeather,  setSearchForecast}) => {
+export const Search = () => {
     
+    const {setSearchCurrentWeather, setSearchForecast} = useContext(SearchContext);
     const [searchText, setSearchText] = useState("");
 
     async function searchCurrentWeatherF(searchText) {
@@ -13,7 +15,7 @@ export const Search = ({setSearchCurrentWeather,  setSearchForecast}) => {
         {
             headers: {
                 "x-rapidapi-host": "open-weather13.p.rapidapi.com",
-                "x-rapidapi-key": "a24569974emshfc4eb41cfaf16c6p1162a0jsn17a6c0ed382b"
+                "x-rapidapi-key": "ec97380d86msh71e5249855cad1bp141c7ejsn883e4091c130"
             }
         }
         );
@@ -27,7 +29,7 @@ export const Search = ({setSearchCurrentWeather,  setSearchForecast}) => {
         {
             headers: {
                 "x-rapidapi-host": "open-weather13.p.rapidapi.com",
-                "x-rapidapi-key": "a24569974emshfc4eb41cfaf16c6p1162a0jsn17a6c0ed382b"
+                "x-rapidapi-key": "ec97380d86msh71e5249855cad1bp141c7ejsn883e4091c130"
             }
         }
         );

@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import Style from "./CurrentWeather.module.css"
 import HumidityIcon from "@icons/humidity.svg"
 import WindIcon from "@icons/wind.svg"
+import { SearchContext } from "@searchContext/SearchContext"
 
 
-export const CurrentWeather = ( {searchCurrentWeather} ) => {
+export const CurrentWeather = () => {
+    const {searchCurrentWeather} = useContext(SearchContext)
     return (
         
         <div className={Style.container}>
