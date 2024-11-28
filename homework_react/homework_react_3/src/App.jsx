@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import TodoList from "./TodoList.jsx";
 import { Filters } from "./Filters.jsx";
 import { AddTodo } from "./AddTodo.jsx";
@@ -10,18 +10,17 @@ export default function App() {
   const [isDark, setIsDark] = useState(false);
   const [text, setText] = useState("");
 
-  const handleTodoClick = (id) => {
+  const handleTodoClick = useCallback((id) => {
     setTodos((prev) =>
       prev.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  };
+  }, []);
 
   // не трогать
   console.log("rerender App");
   //
-
   return (
     <div className="container">
       <Filters tab={tab} setTab={setTab} />

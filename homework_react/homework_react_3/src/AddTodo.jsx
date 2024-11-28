@@ -1,4 +1,6 @@
-export const AddTodo = ({ setTodos, setText, text }) => {
+import { memo } from "react";
+
+export const AddTodo = memo(({ setTodos, setText, text }) => {
   // не трогать
   console.log("rerender AddTodo");
   //
@@ -23,4 +25,4 @@ export const AddTodo = ({ setTodos, setText, text }) => {
       </button>
     </div>
   );
-};
+});

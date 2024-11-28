@@ -1,3 +1,5 @@
+import { useMemo, memo} from "react";
+
 // не трогать
 function filterTodos(todos, tab) {
   let startTime = performance.now();
@@ -15,8 +17,9 @@ function filterTodos(todos, tab) {
 }
 //
 
-const TodoList = ({ todos, theme, tab, handleTodoClick }) => {
-  const visibleTodos = filterTodos(todos, tab);
+const TodoList = memo(({ todos, theme, tab, handleTodoClick }) => {
+  const todos_length = todos.length
+  const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
 
   // не трогать
   console.log("rerender TodoList");
@@ -37,9 +40,9 @@ const TodoList = ({ todos, theme, tab, handleTodoClick }) => {
       </ul>
     </div>
   );
-};
+});
 
-const TodoListItem = ({ todo, i, handleTodoClick }) => {
+const TodoListItem = memo(({ todo, i, handleTodoClick }) => {
   // не трогать
   console.log("rerender TodoListItem");
   //
@@ -51,6 +54,6 @@ const TodoListItem = ({ todo, i, handleTodoClick }) => {
       {i + 1}. {todo.text}
     </li>
   );
-};
+});
 
 export default TodoList;

@@ -1,4 +1,6 @@
-export const DarkMode = ({ isDark, setIsDark }) => {
+import { memo } from "react";
+
+export const DarkMode = memo(({ isDark, setIsDark }) => {
   // не трогать
   console.log("rerender DarkMode");
   //
@@ -12,4 +14,4 @@ export const DarkMode = ({ isDark, setIsDark }) => {
       Dark mode
     </label>
   );
-};
+});
