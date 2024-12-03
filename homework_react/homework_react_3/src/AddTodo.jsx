@@ -1,4 +1,10 @@
-export const AddTodo = ({ setTodos, setText, text }) => {
+import { memo, useRef} from "react";
+
+
+export const AddTodo = memo(({ setTodos }) => {
+
+  const text = useRef("")
+
   // не трогать
   console.log("rerender AddTodo");
   //
@@ -7,20 +13,19 @@ export const AddTodo = ({ setTodos, setText, text }) => {
       <input
         id="text"
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        ref={text}
       />
       <button
         onClick={() => {
           setTodos((prev) => [
             ...prev,
-            { id: Date.now(), text, completed: false },
+            { id: Date.now(), text: text.current.value, completed: false },
           ]);
-          setText("");
+          text.current.value = "";
         }}
       >
         Add new todo
       </button>
     </div>
   );
-};
+});

@@ -8,7 +8,7 @@ export default function App() {
   const [todos, setTodos] = useState([]);
   const [tab, setTab] = useState("all");
   const [isDark, setIsDark] = useState(false);
-  const [text, setText] = useState("");
+
 
   const handleTodoClick = (id) => {
     setTodos((prev) =>
@@ -23,17 +23,17 @@ export default function App() {
   //
 
   return (
-    <div className="container">
-      <Filters tab={tab} setTab={setTab} />
-      <DarkMode isDark={isDark} setIsDark={setIsDark} />
-      <AddTodo setTodos={setTodos} setText={setText} text={text} />
+      <div className="container">
+        <Filters tab={tab} setTab={setTab} />
+        <DarkMode setIsDark = {setIsDark}/>
+        <AddTodo setTodos={setTodos}/>
 
-      <TodoList
-        todos={todos}
-        tab={tab}
-        handleTodoClick={handleTodoClick}
-        theme={isDark ? "dark" : "light"}
-      />
-    </div>
+        <TodoList
+          todos={todos}
+          tab={tab}
+          handleTodoClick={handleTodoClick}
+          theme={isDark ? "dark" : "light"}
+        />
+      </div>
   );
 }

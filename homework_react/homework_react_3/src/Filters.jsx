@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-export const Filters = ({ setTab, tab }) => {
+export const Filters = memo(({ setTab, tab }) => {
   // не трогать
   console.log("rerender Filters");
   //
@@ -27,4 +27,4 @@ export const Filters = ({ setTab, tab }) => {
       </button>
     </div>
   );
-};
+});

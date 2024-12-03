@@ -1,3 +1,7 @@
+import { useMemo } from "react";
+// import {ThemeContext} from "./ThemeContext.jsx"
+
+
 // не трогать
 function filterTodos(todos, tab) {
   let startTime = performance.now();
@@ -15,8 +19,12 @@ function filterTodos(todos, tab) {
 }
 //
 
-const TodoList = ({ todos, theme, tab, handleTodoClick }) => {
-  const visibleTodos = filterTodos(todos, tab);
+const TodoList = ({ todos, tab, theme, handleTodoClick }) => {
+  const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
+
+  // const {isDark} = useContext(ThemeContext);
+  
+  // const theme = isDark ? "dark" : "light";
 
   // не трогать
   console.log("rerender TodoList");

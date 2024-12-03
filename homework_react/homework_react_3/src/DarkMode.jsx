@@ -1,4 +1,8 @@
-export const DarkMode = ({ isDark, setIsDark }) => {
+import { memo } from "react";
+
+
+export const DarkMode = memo(({setIsDark}) => {
+  
   // не трогать
   console.log("rerender DarkMode");
   //
@@ -6,10 +10,9 @@ export const DarkMode = ({ isDark, setIsDark }) => {
     <label>
       <input
         type="checkbox"
-        checked={isDark}
-        onChange={(e) => setIsDark(e.target.checked)}
+        onChange={e => {setIsDark(e.target.checked)}}
       />
       Dark mode
     </label>
   );
-};
+});
